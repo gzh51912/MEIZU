@@ -1,0 +1,218 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  padding-inline-start: 0;
+}
+
+.swiper-pagination-bullet {
+  width: 6px;
+  height: 6px;
+}
+
+main {
+  background: #f4f4f4;
+  overflow: hidden;
+}
+
+.index-hot-tip {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2.4vw 7.40741vw;
+  text-align: center;
+  background-color: #f7f7f7;
+}
+
+.index-hot-tip span {
+  display: inline-block;
+  padding-left: 5vw;
+  font-size: 2.6vw;
+  color: #999;
+  position: relative;
+}
+
+.index-hot-tip span img {
+  position: absolute;
+  width: 3.51852vw;
+  height: 3.51852vw;
+  background: #999;
+  left: 0;
+  border-radius: 50%;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.index-hot-site {
+  background: #fff;
+  margin-bottom: 2.77778vw;
+}
+
+.index-hot-site .hot-site {
+  text-align: center;
+  background-color: #fff;
+  height: 27.77778vw;
+  overflow: hidden;
+}
+
+.index-hot-site .hot-site ul {
+  padding-top: 4vw;
+  padding-bottom: 1vw;
+}
+
+.index-hot-site .hot-site ul li {
+  display: inline-block;
+  width: 20vw;
+  height: 17vw;
+  margin: 0 1vw;
+}
+
+.index-hot-site .hot-site ul li a {
+  display: block;
+}
+
+.index-hot-site .hot-site ul li a img {
+  display: block;
+  width: 13.05556vw;
+  height: 13.05556vw;
+  margin: 0 auto;
+}
+
+.index-hot-site .hot-site ul li a span {
+  color: #000;
+  line-height: 3;
+  font-size: 3.33333vw;
+}
+
+.index-banner {
+  display: flex;
+  flex-wrap: wrap;
+  height: 69vw;
+  overflow: hidden;
+}
+
+.index-banner .row {
+  display: flex;
+  flex-wrap: wrap;
+  width: 50%;
+}
+
+.index-banner .row .banner-lg {
+  height: 69.44444vw;
+}
+
+.index-banner .row .banner-lg a {
+  display: block;
+}
+
+.index-banner .row .banner-lg2 {
+  height: 34.72222vw;
+}
+
+.index-banner .row .banner-lg2 a {
+  display: block;
+}
+
+.phone .title h3 {
+  font-size: 4.81481vw;
+  font-weight: 700;
+  padding: 10vw 0 7vw;
+  text-align: center;
+  position: relative;
+}
+
+.phone .title h3 em {
+  position: absolute;
+  content: "";
+  width: 6vw;
+  height: .7vw;
+  background: #0bbbef;
+  left: 50%;
+  -webkit-transform: translate(-50%);
+  transform: translate(-50%);
+  bottom: 4vw;
+}
+
+.phone .section-box-adv a {
+  width: 100%;
+  height: 100%;
+  transition: opacity .2s linear;
+}
+
+.phone .phone-list {
+  display: flex;
+  flex-wrap: wrap;
+  background: #f4f4f4;
+  padding: 1.5vw 0;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.phone .phone-list .phone-content {
+  position: relative;
+  width: 49.2%;
+  text-align: center;
+  background: #fff;
+  padding-top: 6.2963vw;
+  padding-bottom: 4.90741vw;
+  margin-bottom: 1.11111vw;
+  box-sizing: border-box;
+}
+
+.phone .phone-list .phone-content img {
+  display: inline-block;
+  width: 85%;
+  min-height: 100px;
+  will-change: height;
+}
+
+.phone .phone-list .phone-content .title {
+  font-size: 3.88889vw;
+  color: #333;
+  font-weight: 700;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.phone .phone-list .phone-content .info {
+  font-style: normal;
+  padding: 0 1.25vw;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  border: 1px solid transparent;
+}
+
+.phone .phone-list .phone-content .info .slogan {
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: left;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  font-size: 3.33333vw;
+  color: #999;
+  margin: 0 1.5vw;
+  margin-top: 1.75926vw;
+  margin-bottom: 2.5vw;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.phone .phone-list .phone-content .price {
+  font-size: 3.88889vw;
+  color: #c00;
+}
+
+.phone .phone-list .phone-content .price i {
+  font-style: normal;
+  font-size: 2.8vw;
+}
