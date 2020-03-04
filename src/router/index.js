@@ -8,6 +8,7 @@ import Not  from '../components/not'
 import Login from '../components/login'
 import Top from '../components/top'
 import Reg from '../components/reg'
+import Mine from '../components/mine'
 export const routes=[
     {
         path:'/top',
@@ -24,6 +25,9 @@ export const routes=[
     },{
         path:'/cart',
         component:Cart,
+    },{
+        path:'/mine',
+        component:Mine,
     }
 ]
 

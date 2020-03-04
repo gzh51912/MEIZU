@@ -1,0 +1,75 @@
+.phone-list {
+  display: flex;
+  flex-wrap: wrap;
+  background: #f4f4f4;
+  padding: 1.5vw 0;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.phone-list .phone-content {
+  position: relative;
+  width: 49.2%;
+  text-align: center;
+  background: #fff;
+  padding-top: 6.2963vw;
+  margin-bottom: 1.11111vw;
+  box-sizing: border-box;
+}
+
+.phone-list .phone-content img {
+  display: inline-block;
+  width: 85%;
+  min-height: 100px;
+  will-change: height;
+}
+
+.phone-list .phone-content .title {
+  font-size: 3.88889vw;
+  color: #333;
+  font-weight: 700;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.phone-list .phone-content .info {
+  font-style: normal;
+  padding: 0 1.25vw;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  border: 1px solid transparent;
+  margin-block-start: -1em;
+  margin-block-end: -1em;
+}
+
+.phone-list .phone-content .info .slogan {
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: left;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  font-size: 3.33333vw;
+  color: #999;
+  margin: 0 1.5vw;
+  margin-top: 1.75926vw;
+  margin-bottom: 2.5vw;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.phone-list .phone-content .price {
+  font-size: 3.88889vw;
+  color: #c00;
+}
+
+.phone-list .phone-content .price i {
+  font-style: normal;
+  font-size: 2.8vw;
+}

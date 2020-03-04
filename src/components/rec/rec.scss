@@ -159,7 +159,7 @@ main {
             text-align: center;
             background: #fff;
             padding-top: 6.2963vw;
-            padding-bottom: 4.90741vw;
+
             margin-bottom: 1.11111vw;
             box-sizing: border-box;
 
@@ -186,6 +186,7 @@ main {
                 text-overflow: ellipsis;
                 white-space: nowrap;
                 border: 1px solid transparent;
+
                 .slogan {
                     display: flex;
                     -webkit-box-pack: center;
@@ -219,3 +220,809 @@ main {
         }
     }
 }
+
+.audio {
+    .title {
+        h3 {
+            font-size: 4.81481vw;
+            font-weight: 700;
+            padding: 10vw 0 7vw;
+            text-align: center;
+            position: relative;
+
+            em {
+                position: absolute;
+                content: "";
+                width: 6vw;
+                height: .7vw;
+                background: #ff6363;
+                left: 50%;
+                -webkit-transform: translate(-50%);
+                transform: translate(-50%);
+                bottom: 4vw;
+            }
+        }
+    }
+
+    .audio-ad {
+        position: relative;
+        display: block;
+        height: 100%;
+        background-position: 50%;
+        background-repeat: no-repeat;
+        height: 43.88889vw;
+        position: relative;
+        background: #ff6363;
+        overflow: hidden;
+
+        .ad {
+            position: absolute;
+            width: 50%;
+        }
+
+        .adx {
+            position: absolute;
+            width: 50%;
+            height: 100%;
+            top: -4vw;
+            left: 53.6667vw;
+            color: #fff;
+            line-height: 6vw;
+            padding: 3.88889vw;
+
+            div {
+                position: absolute;
+                width: 50%;
+                height: 100%;
+                top: 0;
+                color: #fff;
+                line-height: 6vw;
+                padding: 3.88889vw;
+
+                h4 {
+                    font-size: 4.62963vw;
+                    width: 33.33333vw;
+                    display: -webkit-box;
+                    -webkit-box-orient: vertical;
+                    -webkit-line-clamp: 2;
+                    overflow: hidden;
+                    margin-block-end: -0.67em;
+                }
+
+                p {
+                    font-size: 3.33333vw;
+                    color: hsla(0, 0%, 100%, .7);
+                    position: relative;
+                    line-height: 1.2;
+                    padding: 1.2vw 0;
+
+                    em {
+                        position: absolute;
+                        content: "";
+                        width: 5vw;
+                        height: .5vw;
+                        background: #fff;
+                        left: 0;
+                        bottom: -1.5vw;
+                    }
+                }
+
+                .price {
+                    position: absolute;
+                    left: 3.88889vw;
+                    bottom: 6vw;
+                    color: hsla(0, 0%, 100%, .7);
+                    font-size: 4.62963vw;
+
+                    i {
+                        font-style: normal;
+                    }
+
+                    s {
+                        margin-left: 2vw;
+                        font-size: 2.77778vw;
+                        color: hsla(0, 0%, 100%, .7);
+                    }
+                }
+            }
+        }
+    }
+    .audio-ad2 {
+        position: relative;
+        display: block;
+        height: 100%;
+        background-position: 50%;
+        background-repeat: no-repeat;
+        height: 43.88889vw;
+        position: relative;
+        background:  #7063C9;
+        overflow: hidden;
+
+        .ad {
+            position: absolute;
+            width: 50%;
+            right: 0;
+        }
+
+        .adx {
+            position: absolute;
+            width: 50%;
+            height: 100%;
+            top: -4vw;
+            left: 53.6667vw;
+            color: #fff;
+            line-height: 6vw;
+            padding: 3.88889vw;
+            left: 0;
+
+            div {
+                position: absolute;
+                width: 50%;
+                height: 100%;
+                top: 0;
+                color: #fff;
+                line-height: 6vw;
+                padding: 3.88889vw;
+
+                h4 {
+                    font-size: 4.62963vw;
+                    width: 33.33333vw;
+                    display: -webkit-box;
+                    -webkit-box-orient: vertical;
+                    -webkit-line-clamp: 2;
+                    overflow: hidden;
+                    margin-block-end: -0.67em;
+                }
+
+                p {
+                    font-size: 3.33333vw;
+                    color: hsla(0, 0%, 100%, .7);
+                    position: relative;
+                    line-height: 1.2;
+                    padding: 1.2vw 0;
+
+                    em {
+                        position: absolute;
+                        content: "";
+                        width: 5vw;
+                        height: .5vw;
+                        background: #fff;
+                        left: 0;
+                        bottom: -1.5vw;
+                    }
+                }
+
+                .price {
+                    position: absolute;
+                    left: 3.88889vw;
+                    bottom: 6vw;
+                    color: hsla(0, 0%, 100%, .7);
+                    font-size: 4.62963vw;
+
+                    i {
+                        font-style: normal;
+                    }
+
+                    s {
+                        margin-left: 2vw;
+                        font-size: 2.77778vw;
+                        color: hsla(0, 0%, 100%, .7);
+                    }
+                }
+            }
+        }
+    }
+    
+}
+
+.audio-list {
+    display: flex;
+    flex-wrap: wrap;
+    background: #f4f4f4;
+    padding: 1.5vw 0;
+    align-items: center;
+    justify-content: space-between;
+
+    .audio-content {
+        position: relative;
+        width: 49.2%;
+        text-align: center;
+        background: #fff;
+        padding-top: 6.2963vw;
+
+        margin-bottom: 1.11111vw;
+        box-sizing: border-box;
+
+        img {
+            display: inline-block;
+            width: 85%;
+            min-height: 100px;
+            will-change: height;
+        }
+
+        .title {
+            font-size: 3.88889vw;
+            color: #333;
+            font-weight: 700;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+        .info {
+            font-style: normal;
+            padding: 0 1.25vw;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            border: 1px solid transparent;
+
+            .slogan {
+                display: flex;
+                -webkit-box-pack: center;
+                -ms-flex-pack: center;
+                -webkit-justify-content: center;
+                justify-content: left;
+                -webkit-box-align: center;
+                -ms-flex-align: center;
+                -webkit-align-items: center;
+                align-items: center;
+                font-size: 3.33333vw;
+                color: #999;
+                margin: 0 1.5vw;
+                margin-top: 1.75926vw;
+                margin-bottom: 2.5vw;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                overflow: hidden;
+            }
+        }
+
+        .price {
+            font-size: 3.88889vw;
+            color: #c00;
+
+            i {
+                font-style: normal;
+                font-size: 2.8vw;
+            }
+        }
+    }
+}
+.accessory {
+    .title {
+        h3 {
+            font-size: 4.81481vw;
+            font-weight: 700;
+            padding: 10vw 0 7vw;
+            text-align: center;
+            position: relative;
+
+            em {
+                position: absolute;
+                content: "";
+                width: 6vw;
+                height: .7vw;
+                background: #7143ff;
+                left: 50%;
+                -webkit-transform: translate(-50%);
+                transform: translate(-50%);
+                bottom: 4vw;
+            }
+        }
+    }
+
+    .audio-ad {
+        position: relative;
+        display: block;
+        height: 100%;
+        background-position: 50%;
+        background-repeat: no-repeat;
+        height: 43.88889vw;
+        position: relative;
+        background: #55C3C3;
+        overflow: hidden;
+
+        .ad {
+            position: absolute;
+            width: 50%;
+        }
+
+        .adx {
+            position: absolute;
+            width: 50%;
+            height: 100%;
+            top: -4vw;
+            left: 53.6667vw;
+            color: #fff;
+            line-height: 6vw;
+            padding: 3.88889vw;
+
+            div {
+                position: absolute;
+                width: 50%;
+                height: 100%;
+                top: 0;
+                color: #fff;
+                line-height: 6vw;
+                padding: 3.88889vw;
+
+                h4 {
+                    font-size: 4.62963vw;
+                    width: 33.33333vw;
+                    display: -webkit-box;
+                    -webkit-box-orient: vertical;
+                    -webkit-line-clamp: 2;
+                    overflow: hidden;
+                    margin-block-end: -0.67em;
+                }
+
+                p {
+                    font-size: 3.33333vw;
+                    color: hsla(0, 0%, 100%, .7);
+                    position: relative;
+                    line-height: 1.2;
+                    padding: 1.2vw 0;
+
+                    em {
+                        position: absolute;
+                        content: "";
+                        width: 5vw;
+                        height: .5vw;
+                        background: #fff;
+                        left: 0;
+                        bottom: -1.5vw;
+                    }
+                }
+
+                .price {
+                    position: absolute;
+                    left: 3.88889vw;
+                    bottom: 6vw;
+                    color: hsla(0, 0%, 100%, .7);
+                    font-size: 4.62963vw;
+
+                    i {
+                        font-style: normal;
+                    }
+
+                    s {
+                        margin-left: 2vw;
+                        font-size: 2.77778vw;
+                        color: hsla(0, 0%, 100%, .7);
+                    }
+                }
+            }
+        }
+    }
+    .audio-ad2 {
+        position: relative;
+        display: block;
+        height: 100%;
+        background-position: 50%;
+        background-repeat: no-repeat;
+        height: 43.88889vw;
+        position: relative;
+        background:  #FFAE45;
+        overflow: hidden;
+
+        .ad {
+            position: absolute;
+            width: 50%;
+            right: 0;
+        }
+
+        .adx {
+            position: absolute;
+            width: 50%;
+            height: 100%;
+            top: -4vw;
+            left: 53.6667vw;
+            color: #fff;
+            line-height: 6vw;
+            padding: 3.88889vw;
+            left: 0;
+
+            div {
+                position: absolute;
+                width: 50%;
+                height: 100%;
+                top: 0;
+                color: #fff;
+                line-height: 6vw;
+                padding: 3.88889vw;
+
+                h4 {
+                    font-size: 4.62963vw;
+                    width: 33.33333vw;
+                    display: -webkit-box;
+                    -webkit-box-orient: vertical;
+                    -webkit-line-clamp: 2;
+                    overflow: hidden;
+                    margin-block-end: -0.67em;
+                }
+
+                p {
+                    font-size: 3.33333vw;
+                    color: hsla(0, 0%, 100%, .7);
+                    position: relative;
+                    line-height: 1.2;
+                    padding: 1.2vw 0;
+
+                    em {
+                        position: absolute;
+                        content: "";
+                        width: 5vw;
+                        height: .5vw;
+                        background: #fff;
+                        left: 0;
+                        bottom: -1.5vw;
+                    }
+                }
+
+                .price {
+                    position: absolute;
+                    left: 3.88889vw;
+                    bottom: 6vw;
+                    color: hsla(0, 0%, 100%, .7);
+                    font-size: 4.62963vw;
+
+                    i {
+                        font-style: normal;
+                    }
+
+                    s {
+                        margin-left: 2vw;
+                        font-size: 2.77778vw;
+                        color: hsla(0, 0%, 100%, .7);
+                    }
+                }
+            }
+        }
+    }
+    
+}
+
+.audio-list {
+    display: flex;
+    flex-wrap: wrap;
+    background: #f4f4f4;
+    padding: 1.5vw 0;
+    align-items: center;
+    justify-content: space-between;
+
+    .audio-content {
+        position: relative;
+        width: 49.2%;
+        text-align: center;
+        background: #fff;
+        padding-top: 6.2963vw;
+
+        margin-bottom: 1.11111vw;
+        box-sizing: border-box;
+
+        img {
+            display: inline-block;
+            width: 85%;
+            min-height: 100px;
+            will-change: height;
+        }
+
+        .title {
+            font-size: 3.88889vw;
+            color: #333;
+            font-weight: 700;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+        .info {
+            font-style: normal;
+            padding: 0 1.25vw;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            border: 1px solid transparent;
+
+            .slogan {
+                display: flex;
+                -webkit-box-pack: center;
+                -ms-flex-pack: center;
+                -webkit-justify-content: center;
+                justify-content: left;
+                -webkit-box-align: center;
+                -ms-flex-align: center;
+                -webkit-align-items: center;
+                align-items: center;
+                font-size: 3.33333vw;
+                color: #999;
+                margin: 0 1.5vw;
+                margin-top: 1.75926vw;
+                margin-bottom: 2.5vw;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                overflow: hidden;
+            }
+        }
+
+        .price {
+            font-size: 3.88889vw;
+            color: #c00;
+
+            i {
+                font-style: normal;
+                font-size: 2.8vw;
+            }
+        }
+    }
+}
+.house {
+    .title {
+        h3 {
+            font-size: 4.81481vw;
+            font-weight: 700;
+            padding: 10vw 0 7vw;
+            text-align: center;
+            position: relative;
+
+            em {
+                position: absolute;
+                content: "";
+                width: 6vw;
+                height: .7vw;
+                background:  #6fdc39;
+                left: 50%;
+                -webkit-transform: translate(-50%);
+                transform: translate(-50%);
+                bottom: 4vw;
+            }
+        }
+    }
+
+    .audio-ad {
+        position: relative;
+        display: block;
+        height: 100%;
+        background-position: 50%;
+        background-repeat: no-repeat;
+        height: 43.88889vw;
+        position: relative;
+        background: #3a73a5;
+        overflow: hidden;
+
+        .ad {
+            position: absolute;
+            width: 50%;
+        }
+
+        .adx {
+            position: absolute;
+            width: 50%;
+            height: 100%;
+            top: -4vw;
+            left: 53.6667vw;
+            color: #fff;
+            line-height: 6vw;
+            padding: 3.88889vw;
+
+            div {
+                position: absolute;
+                width: 50%;
+                height: 100%;
+                top: 0;
+                color: #fff;
+                line-height: 6vw;
+                padding: 3.88889vw;
+
+                h4 {
+                    font-size: 4.62963vw;
+                    width: 33.33333vw;
+                    display: -webkit-box;
+                    -webkit-box-orient: vertical;
+                    -webkit-line-clamp: 2;
+                    overflow: hidden;
+                    margin-block-end: -0.67em;
+                }
+
+                p {
+                    font-size: 3.33333vw;
+                    color: hsla(0, 0%, 100%, .7);
+                    position: relative;
+                    line-height: 1.2;
+                    padding: 1.2vw 0;
+
+                    em {
+                        position: absolute;
+                        content: "";
+                        width: 5vw;
+                        height: .5vw;
+                        background: #fff;
+                        left: 0;
+                        bottom: -1.5vw;
+                    }
+                }
+
+                .price {
+                    position: absolute;
+                    left: 3.88889vw;
+                    bottom: 6vw;
+                    color: hsla(0, 0%, 100%, .7);
+                    font-size: 4.62963vw;
+
+                    i {
+                        font-style: normal;
+                    }
+
+                    s {
+                        margin-left: 2vw;
+                        font-size: 2.77778vw;
+                        color: hsla(0, 0%, 100%, .7);
+                    }
+                }
+            }
+        }
+    }
+    .audio-ad2 {
+        position: relative;
+        display: block;
+        height: 100%;
+        background-position: 50%;
+        background-repeat: no-repeat;
+        height: 43.88889vw;
+        position: relative;
+        background:  #F55C5C;
+        overflow: hidden;
+
+        .ad {
+            position: absolute;
+            width: 50%;
+            right: 0;
+        }
+
+        .adx {
+            position: absolute;
+            width: 50%;
+            height: 100%;
+            top: -4vw;
+            left: 53.6667vw;
+            color: #fff;
+            line-height: 6vw;
+            padding: 3.88889vw;
+            left: 0;
+
+            div {
+                position: absolute;
+                width: 50%;
+                height: 100%;
+                top: 0;
+                color: #fff;
+                line-height: 6vw;
+                padding: 3.88889vw;
+
+                h4 {
+                    font-size: 4.62963vw;
+                    width: 33.33333vw;
+                    display: -webkit-box;
+                    -webkit-box-orient: vertical;
+                    -webkit-line-clamp: 2;
+                    overflow: hidden;
+                    margin-block-end: -0.67em;
+                }
+
+                p {
+                    font-size: 3.33333vw;
+                    color: hsla(0, 0%, 100%, .7);
+                    position: relative;
+                    line-height: 1.2;
+                    padding: 1.2vw 0;
+
+                    em {
+                        position: absolute;
+                        content: "";
+                        width: 5vw;
+                        height: .5vw;
+                        background: #fff;
+                        left: 0;
+                        bottom: -1.5vw;
+                    }
+                }
+
+                .price {
+                    position: absolute;
+                    left: 3.88889vw;
+                    bottom: 6vw;
+                    color: hsla(0, 0%, 100%, .7);
+                    font-size: 4.62963vw;
+
+                    i {
+                        font-style: normal;
+                    }
+
+                    s {
+                        margin-left: 2vw;
+                        font-size: 2.77778vw;
+                        color: hsla(0, 0%, 100%, .7);
+                    }
+                }
+            }
+        }
+    }
+    
+}
+
+.audio-list {
+    display: flex;
+    flex-wrap: wrap;
+    background: #f4f4f4;
+    padding: 1.5vw 0;
+    align-items: center;
+    justify-content: space-between;
+
+    .audio-content {
+        position: relative;
+        width: 49.2%;
+        text-align: center;
+        background: #fff;
+        padding-top: 6.2963vw;
+
+        margin-bottom: 1.11111vw;
+        box-sizing: border-box;
+
+        img {
+            display: inline-block;
+            width: 85%;
+            min-height: 100px;
+            will-change: height;
+        }
+
+        .title {
+            font-size: 3.88889vw;
+            color: #333;
+            font-weight: 700;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+        .info {
+            font-style: normal;
+            padding: 0 1.25vw;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            border: 1px solid transparent;
+
+            .slogan {
+                display: flex;
+                -webkit-box-pack: center;
+                -ms-flex-pack: center;
+                -webkit-justify-content: center;
+                justify-content: left;
+                -webkit-box-align: center;
+                -ms-flex-align: center;
+                -webkit-align-items: center;
+                align-items: center;
+                font-size: 3.33333vw;
+                color: #999;
+                margin: 0 1.5vw;
+                margin-top: 1.75926vw;
+                margin-bottom: 2.5vw;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                overflow: hidden;
+            }
+        }
+
+        .price {
+            font-size: 3.88889vw;
+            color: #c00;
+
+            i {
+                font-style: normal;
+                font-size: 2.8vw;
+            }
+        }
+    }
+}
+

@@ -2,16 +2,20 @@ import React, { Component } from 'react'
 import Swiper from 'swiper'
 import 'swiper/css/swiper.css'
 import './rec.min.css'
+import {getRec} from '../../api/request'
 
 export default class home extends Component {
     constructor(props){
         super(props)
         this.state={
-            listsw:[]
+            phone:[],
+            sound:[],
+            parts:[],
+            life:[]
         }
     }
     componentDidMount(){
-        // this.getSw()
+        // 轮播图
         new Swiper('.swiper-container',{
             direction: 'horizontal', // 垂直切换选项
             loop:true,//循环模式
@@ -24,10 +28,37 @@ export default class home extends Component {
                 el:'.swiper-pagination'
             }
         })
+
+        //****** */
+        this.getData()
+    }
+    getData(){
+        getRec("推荐手机").then((res)=>{
+           this.setState({
+               phone:res
+           })
+       })
+       getRec("推荐声学").then((res)=>{
+           this.setState({
+               sound:res
+           })
+       })
+       getRec("推荐配件").then((res)=>{
+           this.setState({
+               parts:res
+           })
+       })
+       getRec("推荐周边").then((res)=>{
+           this.setState({
+               life:res
+           })
+       })
     }
     
     render() {
+        let  {phone,sound,parts,life} = this.state
         return (<div>
+            {/* 轮播图 */}
             <div className="swiper-container">
                  <div className="swiper-wrapper">
                     <div className="swiper-slide"><img src="https://fms.res.meizu.com/dms/2020/02/28/e1ef0740-7287-4285-a990-089d747a2327.jpg"/></div>
@@ -43,7 +74,7 @@ export default class home extends Component {
             </div>
 
             <div className="main">
-
+            {/* 轮播图下面的包邮 */}
                 <div className="index-hot-tip" id="index-hot-tip">
                     <span className="icon" data-mtype="mgw_index_yl_service_1" data-bh="click_mgw_index_yl_service_1">
                 <img src="https://fms.res.meizu.com/dms/2018/03/30/99f49dfe-25c2-485a-b7b3-8b63d6487b46.png" />魅族官方直供</span>
@@ -51,7 +82,7 @@ export default class home extends Component {
                 <img src="https://fms.res.meizu.com/dms/2018/03/30/8f1252b1-3fb2-48e2-b992-1f38a9745314.png"/>满80免运费</span>
                 <span className="icon" data-mtype="mgw_index_yl_service_3" data-bh="click_mgw_index_yl_service_3"><img src="https://fms.res.meizu.com/dms/2018/03/30/3924a1e1-5b4a-41de-9e79-ee904ec69d90.png"/>7 天无理由退货</span>
                 </div>
-
+            {/* 女王价到 */}
                 <div className="index-hot-site" id="index-hot-site">
                     <div className="hot-site">
                         <ul>
@@ -93,7 +124,7 @@ export default class home extends Component {
                         </div>
                     </div>
                 </div>
-            
+            {/* 列表 */}
                 <div className="phone">
                     <div className="title">
                         <h3>智能手机
@@ -101,22 +132,161 @@ export default class home extends Component {
                         </h3>
                     </div>
                     <div className="section-box-adv">
-                        <a href="https://detail.mall.meizu.com/item/meizunote9.html" target="_blank" data-mtype="store_index_yl_1_1" data-bh="click_store_index_yl_1_1"><img class="lazy-img loaded-img" src="https://fms.res.meizu.com/dms/2020/02/05/8828c2e1-85c7-45d0-8fc1-f7d2d694f14e.jpg" alt="" data-src="https://fms.res.meizu.com/dms/2020/02/05/8828c2e1-85c7-45d0-8fc1-f7d2d694f14e.jpg" actived="actived"/></a>
+                        <a href="https://detail.mall.meizu.com/item/meizunote9.html" target="_blank" data-mtype="store_index_yl_1_1" data-bh="click_store_index_yl_1_1"><img className="lazy-img loaded-img" src="https://fms.res.meizu.com/dms/2020/02/05/8828c2e1-85c7-45d0-8fc1-f7d2d694f14e.jpg" alt="" data-src="https://fms.res.meizu.com/dms/2020/02/05/8828c2e1-85c7-45d0-8fc1-f7d2d694f14e.jpg" actived="actived"/></a>
                         </div>
                     <div className="phone-list">
-                        {/* 列表 */}
-                    <div class="phone-content">
-                       <img src="https://openfile.meizu.com/group1/M00/07/87/Cgbj0V3U7gOAPBz7AAi2bv3GS9Q690.png" />
+                        {/* 手机 */}
+                        {
+                            phone.map((item)=>{
+                                return <div className="phone-content" key={item.id}>
+                       <img src={item.src}/>
                        <div className="info">
-                            <p className="title">魅族18</p>
-                            <p className="slogan ">【限时6期免息】6.5英寸极边全面屏 | 骁龙855旗舰处理器 | 4500mAh续航怪兽 | UFS 3.0 高速闪存 </p>
+                            <p className="title">{item.title}</p>
+                            <p className="slogan ">{item.slogan}</p>
                        </div>
-                       <p className="price"><i>￥</i>1999<em></em><s></s></p>
+                       <p className="price"><i>￥</i>{item.price}<em></em><s></s></p>
                     </div> 
+                            })
+                        }
                     
                     </div>
                 </div>
-            
+
+                <div className="audio">
+                <div className="title"><h3>魅族声学<em></em></h3></div>
+                <div className="audio-ad">
+                <div className="ad">
+                <img src="https://fms.res.meizu.com/dms/2019/10/23/b2651b25-a85b-464b-8ff6-57106898e6c3.jpg"/>
+                </div>
+                <div className="adx">
+                    <div>
+                        <h4>魅族 HD60 头戴式蓝牙耳机</h4>
+                        <p>40mm生物振膜 | Type-C充电 | 触控操作 | 蓝牙5.0 | 轻奢品质<em></em></p>
+                        <p className="price"><i>￥</i>449<em></em><s>￥499</s></p>
+                    </div>
+                </div>
+                </div>
+                <div className="audio-ad2">
+                <div className="adx">
+                    <div>
+                        <h4>MEIZU UR 高端定制耳机 预约</h4>
+                        <p>【预约专用】私人定制，为你而声</p>
+                        <p className="price"><i>￥</i>200<em></em><s></s></p>
+                    </div>
+                </div>
+                <div className="ad">
+                <img src="https://fms.res.meizu.com/dms/2019/08/28/1cbca752-3b8f-4ddf-a20e-c6bbcbebc5fa.jpg"/>
+                </div>
+                </div>
+                {/* 耳机列表 */}
+                <div className="audio-list">
+                        {/* 列表 */}
+                        {
+                            sound.map((item)=>{
+                                return <div className="audio-content" key={item.id}>
+                       <img src={item.src}/>
+                       <div className="info">
+                            <p className="title">{item.title}</p>
+                            <p className="slogan ">{item.slogan}</p>
+                       </div>
+                       <p className="price"><i>￥</i>{item.price}<em></em><s></s></p>
+                    </div>
+                            })
+                        }
+                     
+                    </div>
+                </div>
+                {/* 配件 */}
+                <div className="accessory">
+                <div className="title"><h3>智能配件<em></em></h3></div>
+                <div className="audio-ad">
+                <div className="ad">
+                <img src="https://fms.res.meizu.com/dms/2018/09/19/e1a6e477-23ab-4dd9-9931-be8a23745054.jpg"/>
+                </div>
+                <div className="adx">
+                    <div>
+                        <h4>魅族移动电源3</h4>
+                        <p>双向快充双充电口 轻薄小巧</p>
+                        <p  className="price"><i>￥</i>79<em></em><s></s></p>
+                    </div>
+                </div>
+                </div>
+                <div className="audio-ad2">
+                <div className="adx">
+                    <div>
+                        <h4>魅族中国红Type-C金属编织线</h4>
+                        <p>Type-C 接口 | 3A大电流 | 耐磨编织材料</p>
+                        <p className="price"><i>￥</i>39<em></em><s></s></p>
+                    </div>
+                </div>
+                <div className="ad">
+                <img src="https://fms.res.meizu.com/dms/2020/01/12/5d82e5b0-bbc0-41c5-950e-a72b70105df6.jpg"/>
+                </div>
+                </div>
+                {/* 耳机列表 */}
+                <div className="audio-list">
+                        {/* 列表 */}
+                        {
+                            parts.map((item)=>{
+                                return <div className="audio-content" key={item.id}>
+                        <img src={item.src}/>
+                       <div className="info">
+                            <p className="title">{item.title}</p>
+                            <p className="slogan ">{item.slogan}</p>
+                       </div>
+                       <p className="price"><i>￥</i>{item.price}<em></em><s></s></p>
+                    </div> 
+                            })
+                        }
+                    
+                    </div>
+                </div>
+                {/* 生活周边 */}
+                <div className="house">
+                <div className="title"><h3>生活周边<em></em></h3></div>
+                <div className="audio-ad">
+                <div className="ad">
+                <img src="https://fms.res.meizu.com/dms/2020/01/13/651a0941-0bf1-4d15-a3b5-0a7f76894938.jpg"/>
+                </div>
+                <div className="adx">
+                    <div>
+                        <h4>Pandaer 鼠年圆领卫衣</h4>
+                        <p>优质棉料 / 挺括亲肤 / 保暖舒适</p>
+                        <p className="price"><i>￥</i>199<em></em><s></s></p>
+                    </div>
+                </div>
+                </div>
+                <div className="audio-ad2">
+                <div className="adx">
+                    <div>
+                        <h4>魅族防飞溅声波电动牙刷</h4>
+                        <p>智能压感防飞溅 | 超强震动清洁 | FDA 杜邦软毛 | 30天超长续航 </p>
+                        <p className="price"><i>￥</i>269<em></em><s>￥299</s></p>
+                    </div>
+                </div>
+                <div className="ad">
+                <img src="https://fms.res.meizu.com/dms/2020/01/16/98f89845-0e70-4a3f-b9b9-2427d7927752.jpg"/>
+                </div>
+                </div>
+                {/* 耳机列表 */}
+                <div className="audio-list">
+                        {/* 列表 */}
+                       {
+                            life.map((item)=>{
+                                return <div className="audio-content" key={item.id}>
+                        <img src={item.src}/>
+                       <div className="info">
+                            <p className="title">{item.title}</p>
+                            <p className="slogan ">{item.slogan}</p>
+                       </div>
+                       <p className="price"><i>￥</i>{item.price}<em></em><s></s></p>
+                    </div>
+                            })
+                        }
+                     
+                    </div>
+                </div>
+
             </div>
 
 
