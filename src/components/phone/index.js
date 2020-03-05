@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import './phone.min.css'
-// import store from '../../store'
-// import actionCreator from '../../store/actionCreator';
+import store from '../../store'
+import actionCreator from '../../store/actionCreator';
 import {connect} from 'react-redux';
 import {getList} from '../../api/request'
 
@@ -13,9 +13,6 @@ import {getList} from '../../api/request'
          }
      }
      componentDidMount(){
-        //  this.props.phone() //请求数据
-        // console.log(store.getState());
-        
         this.getData()
      }
      getData(){
@@ -24,6 +21,11 @@ import {getList} from '../../api/request'
                 list:res
             })
         })
+     }
+     phone=(id)=>{
+        this.props.phone(id)
+        this.props.history.push("/details")
+        
      }
     render() {
             let {list} = this.state
@@ -42,7 +44,7 @@ import {getList} from '../../api/request'
                         {/* 列表 */}
                         {
                             list.map((item)=>{
-                                return <div className="phone-content" key={item.id}>
+                                return <div className="phone-content" key={item.id} onClick={this.phone.bind(this,item.id)}>
                                          <img src={item.src} />
                                          <div className="info">
                                               <p className="title">{item.title}</p>
@@ -59,10 +61,10 @@ import {getList} from '../../api/request'
         )
     }
 }
-// var mapState=(state)=>{
-//     return{
+var mapState=(state)=>{
+    return{
         
-//     }
-// }
-// export default connect(mapState,actionCreator)(Phone)
-export default Phone
+    }
+}
+export default connect(mapState,actionCreator)(Phone)
+// export default Phone

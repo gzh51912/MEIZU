@@ -1,0 +1,55 @@
+.carttop {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  width: 100%;
+  background-color: #fff;
+  box-shadow: 2px 2px 5px #bbbbbb;
+}
+
+.carttop .goback {
+  background-image: url(../../assets/img/goback.png);
+  float: left;
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  font-size: 20px;
+  background-size: 14px;
+  background-repeat: no-repeat;
+  margin: 12px;
+}
+
+.carttop .carttitle {
+  max-width: 60%;
+  margin: auto;
+  line-height: 44px;
+  color: #666;
+  font-size: 18px;
+  text-align: center;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.cart-empty {
+  text-align: center;
+  margin: 60% auto;
+}
+
+.cart-empty .msg {
+  margin: 4.72222rem 0 1.83333rem;
+  color: #666;
+  font-size: 12px;
+}
+
+.cart-empty .btn {
+  display: inline-block;
+  width: 30.0667vw;
+  height: 9.8vw;
+  line-height: 9.8vw;
+  font-size: 16px;
+  border-radius: 2px;
+  background-color: #00c3f5;
+  color: #fff;
+}

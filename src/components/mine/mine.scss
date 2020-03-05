@@ -1,0 +1,28 @@
+
+.minetop{
+    background-image: url(../../assets/img/mine.jpg) ;
+    background-size: 100%;
+    width: 100%;
+    height: 100%;
+    height:38.4667vw;
+    position: relative;
+    background-repeat:repeat;
+    background-color: #EEEEEE;
+    .return{
+       
+        height: 61%;
+        display: flex;
+        justify-content: space-between;
+        padding: 2vw;
+        .touxiang{
+            width: 25%;
+            background-image: url(../../assets/img/touxiang.png);
+            background-size: 100%;
+            border-radius: 50%;
+        }
+    }
+    .login{
+        color: #fff;
+        text-align: center;
+    }
+}

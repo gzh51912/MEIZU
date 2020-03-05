@@ -1,6 +1,6 @@
 import axios from 'axios'
 const initialState = {
-    list: []
+    id: ""
 }
 
 export default (state = initialState, action) => {
@@ -8,15 +8,7 @@ export default (state = initialState, action) => {
 
         case "PHONE":
             var newState = JSON.parse(JSON.stringify(state))
-            var type="手机"
-            // axios.get(`http://localhost:5555/meizugoods/type?type=${type}`).then((res)=>{
-            //   newState=res.data  
-            //   console.log(newState);
-              
-            // })
-            // console.log(newState);
-            // var aa=newState 
-            // console.log(aa);
+           newState.id=action.id
             
             return newState;
 

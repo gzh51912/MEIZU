@@ -1,7 +1,8 @@
 export default{
-    phone(){
+    phone(id){
         return{
-            type:'PHONE'
+            type:'PHONE',
+            id
         }
     },
     sound(){

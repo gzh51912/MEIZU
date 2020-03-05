@@ -9,6 +9,7 @@ import Login from '../components/login'
 import Top from '../components/top'
 import Reg from '../components/reg'
 import Mine from '../components/mine'
+import Details from '../components/details'
 export const routes=[
     {
         path:'/top',
@@ -28,6 +29,9 @@ export const routes=[
     },{
         path:'/mine',
         component:Mine,
+    },{
+        path:'/details',
+        component:Details,
     }
 ]
 
