@@ -70,18 +70,19 @@ import{details,checkCart,addCart,addNum} from '../../api/request'
         checkCart(this.state.list[0].id,sessionStorage.getItem("user")).then((res)=>{
             console.log(res);
             if(res[0]){ //增加数量
-                console.log("res");
-                
                 let newnum=res[0].num*1 + this.node.innerText*1
                 console.log(newnum);
                 
                 addNum(this.state.list[0].id,newnum,sessionStorage.getItem("user")).then((res)=>{
                     console.log(res);
+                    alert(res.msg)
                 })
             }else{  //添加到购物车
                 addCart(this.state.list[0].id,this.node.innerText,sessionStorage.getItem("user")).then((res)=>{
                     console.log(res);
-                    
+                    if(res.type===1){
+                        alert(res.msg)
+                    }
                 })
             }
             
@@ -148,7 +149,7 @@ import{details,checkCart,addCart,addNum} from '../../api/request'
         )
     }
 }
-var mapState=(state)=>{
+var mapState=()=>{
     return{
         
     }

@@ -21,10 +21,15 @@ export const details=(id)=>{ //详情页
 export const checkCart=(gid,uid)=>{ //查询购物车中是否存在该商品
     return axios.get('/meizugoods/checkcart',{params:{gid,uid}})
 }
-
 export const addCart=(gid, num,uid)=>{ //添加商品到购物车
     return axios.post("/meizugoods/addcart",{gid, num,uid});
 }
 export const addNum=(gid,num,uid)=>{ //增加数量
     return axios.put("/meizugoods/addnum",{gid,num,uid});
+}
+export const cartList=(uid)=>{ //查询购物车
+    return axios.get('/meizugoods/usercart',{params:{uid}})
+}
+export const cartData=(gid)=>{ //根据购物车gid获取商品数据
+    return axios.get('/meizugoods/cartdata',{params:{gid}})
 }

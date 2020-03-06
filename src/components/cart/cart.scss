@@ -20,25 +20,28 @@
     }
 
     .carttitle {
-    max-width: 60%;
-    margin: auto;
-    line-height: 44px;
-    color: #666;
-    font-size: 18px;
-    text-align: center;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
+        max-width: 60%;
+        margin: auto;
+        line-height: 44px;
+        color: #666;
+        font-size: 18px;
+        text-align: center;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
     }
 }
+
 .cart-empty {
     text-align: center;
     margin: 60% auto;
-   .msg {
+
+    .msg {
         margin: 4.72222rem 0 1.83333rem;
         color: #666;
         font-size: 12px;
     }
+
     .btn {
         display: inline-block;
         width: 30.0667vw;
@@ -48,5 +51,157 @@
         border-radius: 2px;
         background-color: #00c3f5;
         color: #fff;
+    }
+}
+
+.cart-list {
+    padding-bottom: 1.25rem;
+    margin-top: 14vw;
+    .section {
+        margin-top: 8px;
+        overflow: hidden;
+        background-color: #fff;
+
+        .supplier {
+            height: 1.33333rem;
+            line-height: 1.44444rem;
+            font-size: 14px;
+            overflow: hidden;
+
+            .radio {
+                float: left;
+                position: relative;
+                padding: 0;
+                width: 13%;
+                height: 1.33333rem;
+                box-sizing: border-box;
+                line-height: 1.6;
+                font-family: iconfont;
+
+                em {
+                    content: "";
+                    position: absolute;
+                    top: 50%;
+                    width: .55556rem;
+                    height: .55556rem;
+                    margin-top: -.27778rem;
+                    border-radius: 50%;
+                    border: 1px solid #ddd;
+                    background-color: #fff;
+                    transition: background-color .1s linear;
+                    right: auto;
+                    left: .33333rem;
+                }
+            }
+        }
+    }
+
+    .secrow{
+        margin-bottom: -1px;
+        overflow: auto;
+
+        .row-item {
+            overflow: auto;
+            border-bottom: 1px solid rgb(238, 236, 236);
+            .radio {
+                // border-bottom: 1px solid rgb(238, 236, 236);
+                float: left;
+                position: relative;
+                padding: 0;
+                width: 13%;
+                height: 1.33333rem;
+                box-sizing: border-box;
+                top: 1.44444rem;
+                margin-top: -.66667rem;
+                em {
+                    content: "";
+                    position: absolute;
+                    right: .34722rem;
+                    top: 50%;
+                    width: .55556rem;
+                    height: .55556rem;
+                    margin-top: -.27778rem;
+                    background-color: #fff;
+                    right: auto;
+                    left: .33333rem;
+                }
+            }
+
+            .radio-fld {
+                float: right;
+                width: 87%;
+
+                .item {
+                    position: relative;
+                    z-index: 0;
+                    padding: .33333rem .33333rem .33333rem 0;
+                    overflow: hidden;
+
+                    .prod-img {
+                        float: left;
+                        position: relative;
+                        width: 22.2vw;
+                        height: 22.2vw;
+
+                        img {
+                            width: 100%;
+                            height: 100%;
+                        }
+                    }
+
+                    .intro {
+                        position: relative;
+                        margin-left: 2.5rem;
+                        line-height: .69444rem;
+                        overflow: hidden;
+
+                        h3 {
+                            width: 100%;
+                            font-size: 14px;
+                            font-weight: 400;
+                            overflow: initial;
+                            text-overflow: ellipsis;
+                            white-space: nowrap;
+                            word-break: break-word;
+                        }
+
+                        .attrs {
+                            padding-top: .04167rem;
+                            color: #999;
+                            width: 100%;
+                            font-size: 14px;
+                            font-weight: 400;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            white-space: nowrap;
+                            word-break: break-word;
+                            overflow: initial;
+                            span {
+                                color: #999;
+                            }
+                        }
+                        .howmuch {
+                            padding-top: .11111rem;
+                            line-height: 27px;
+                            overflow: auto;
+                            .price {
+                                float: left;
+                                color: #f0415f;
+                                :before {
+                                    content: attr(data-symbol);
+                                }
+                            }
+                            .quantity {
+                                float: right;
+                                color: #999;
+                                :before {
+                                    content: "\D7";
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 }
