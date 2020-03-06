@@ -18,3 +18,13 @@ export const loginto=(name,password)=>{ //登录
 export const details=(id)=>{ //详情页
     return axios.get('/meizugoods/details',{params:{id}})
 }
+export const checkCart=(gid,uid)=>{ //查询购物车中是否存在该商品
+    return axios.get('/meizugoods/checkcart',{params:{gid,uid}})
+}
+
+export const addCart=(gid, num,uid)=>{ //添加商品到购物车
+    return axios.post("/meizugoods/addcart",{gid, num,uid});
+}
+export const addMun=(num)=>{ //增加数量
+    return axios.post("/meizugoods/addmun",{num});
+}

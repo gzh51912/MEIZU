@@ -5,19 +5,21 @@ import store from '../../store'
 import actionCreator from '../../store/actionCreator';
 import {connect} from 'react-redux';
 import './details.min.css'
-import{details} from '../../api/request'
+import{details,checkCart} from '../../api/request'
 
  class Details extends Component {
      constructor(props){
          super(props)
          this.state={
             //  id:store.getState().id,
-             list:[]
+             list:[],
+             num:1
          }
         
      }
      componentDidMount(){
           this.getData()
+          
      }
      componentDidUpdate(){ 
          // 轮播图
@@ -47,13 +49,42 @@ import{details} from '../../api/request'
      cart=()=>{
         this.props.history.push("/cart")
      }
+     add=(a)=>{
+         if(this.state.num>=1){
+             this.setState({
+            num:this.state.num+a
+        },()=>{ //异步
+            // console.log(this.node.innerText);
+            // console.log(this.state.list[0].id);
+            
+        })
+        
+         }
+     }
+     addCart=()=>{
+         this.getCart()
+        // console.log(this.node.innerText);
+        // console.log(this.state.list[0].id);
+     }
+     getCart(){  //加入购物车发送请求
+        checkCart(this.state.list[0].id,sessionStorage.getItem("user")*1).then((res)=>{
+            console.log(res);
+            if(res.type){ //添加到购物车
+                
+            }else{  //增加数量
+
+            }
+            
+        })
+     }  
     render() {
         return (
             <div>
                 <div className="detop">
                     <div className="goback" onClick={this.home}></div>
                     <div className="home" onClick={this.home}></div>
-                </div> {
+                </div>
+                 {
                          this.state.list.map((item)=>{
                             return <div className="swiper-container"   key={item.id} style={{marginTop:"36px"} }>
                                     <div className="swiper-wrapper">
@@ -74,12 +105,34 @@ import{details} from '../../api/request'
                                     </div>
                         })  
                      }
+                    <div className="server">
+                    <ul>
+                        <li><i className="icon icon-service"></i>花呗分期</li>
+                        <li><i className="icon icon-service"></i>顺丰发货</li>
+                        <li><i className="icon icon-service"></i>7天无理由退货（激活后不支持）</li>
+                    </ul>
+                    </div>
+                    <section className="selected">
+                        <label>已选</label>
+                        <p>
+                            <span className="s-selected">全网通公开版,鲸跃蓝,6+128GB,官方标配</span>
+                            <span className="quantity">
+                                <button onClick={this.add.bind(this,-1)}>-</button>
+                                ×<span ref={(node)=>this.node=node}>{this.state.num}</span>
+                                <button onClick={this.add.bind(this,1)}>+</button>
+                            </span>
+                        </p>
+                        <i className="icon icon-enter" id="J_prodPromoEnter"></i>
+                    </section>
+
+
+                     {/* 底部 */}
                     <div className="cartbu">
                         <div></div>
                         <div></div>
                         <div onClick={this.cart}></div>
-                        <div>加入购物车</div>
-                        <div>立即购买</div>
+                        <div onClick={this.addCart}>加入购物车</div>
+                        <div onClick={this.addCart}>立即购买</div>
                         </div> 
             </div>
         )
