@@ -25,6 +25,6 @@ export const checkCart=(gid,uid)=>{ //查询购物车中是否存在该商品
 export const addCart=(gid, num,uid)=>{ //添加商品到购物车
     return axios.post("/meizugoods/addcart",{gid, num,uid});
 }
-export const addMun=(num)=>{ //增加数量
-    return axios.post("/meizugoods/addmun",{num});
+export const addNum=(gid,num,uid)=>{ //增加数量
+    return axios.put("/meizugoods/addnum",{gid,num,uid});
 }

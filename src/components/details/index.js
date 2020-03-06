@@ -5,7 +5,7 @@ import store from '../../store'
 import actionCreator from '../../store/actionCreator';
 import {connect} from 'react-redux';
 import './details.min.css'
-import{details,checkCart} from '../../api/request'
+import{details,checkCart,addCart,addNum} from '../../api/request'
 
  class Details extends Component {
      constructor(props){
@@ -40,7 +40,7 @@ import{details,checkCart} from '../../api/request'
         this.props.history.push("/top")
      }
      getData(){
-         details(1).then((res)=>{
+         details(store.getState().id).then((res)=>{
              this.setState({
                 list:res
              })
@@ -67,12 +67,22 @@ import{details,checkCart} from '../../api/request'
         // console.log(this.state.list[0].id);
      }
      getCart(){  //加入购物车发送请求
-        checkCart(this.state.list[0].id,sessionStorage.getItem("user")*1).then((res)=>{
+        checkCart(this.state.list[0].id,sessionStorage.getItem("user")).then((res)=>{
             console.log(res);
-            if(res.type){ //添加到购物车
+            if(res[0]){ //增加数量
+                console.log("res");
                 
-            }else{  //增加数量
-
+                let newnum=res[0].num*1 + this.node.innerText*1
+                console.log(newnum);
+                
+                addNum(this.state.list[0].id,newnum,sessionStorage.getItem("user")).then((res)=>{
+                    console.log(res);
+                })
+            }else{  //添加到购物车
+                addCart(this.state.list[0].id,this.node.innerText,sessionStorage.getItem("user")).then((res)=>{
+                    console.log(res);
+                    
+                })
             }
             
         })
