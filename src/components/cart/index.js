@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Hoc from '../hoc'
 import './cart.min.css'
-import{cartList,cartData} from '../../api/request'
+import{cartList,cartData,addNum} from '../../api/request'
 class Cart extends Component {
     constructor(props){
         super(props)
@@ -13,27 +13,26 @@ class Cart extends Component {
         this.getCart()
     }
     getCart(){
-        cartList(sessionStorage.getItem("user")).then((res)=>{
-            // console.log(res);
+        cartList(sessionStorage.getItem("user")).then((res)=>{ //根据当前用户是谁来查询他的购物车
                     var data=[]
+                    var num=res
             for(var i in res){
-                // console.log(res[i].gid);
                 cartData(res[i].gid).then((res)=>{ //根据cart表的gid查询到的商品加入list
-                    // console.log(res);
                     data.push(res[0])
+
+                    data.map((item,index)=>{ //把数量num添加到data数组种
+                       return item["num"]=num[index].num
+                    })
                     this.setState({
                         list:data
                     },()=>{
-                       
-                            console.log(this.state.list);
-                        
+                            console.log(this.state.list);    
                     })
                 }) 
             }
         })
     }
      back=(a)=>{ 
-         console.log(a);
          if(a==="1"){
              this.props.history.push("/top/rec")
          }else{
@@ -41,10 +40,20 @@ class Cart extends Component {
          }
          
      }
+     /////商品id,当前数量，加减，当前用户
+     num=(gid, num,as,uid)=>{  //修改购物车中单个商品的数量 
+         if(num<=1&& as===-1){
+             alert("已经是最小啦！！不能再减少啦！！！")
+         }else{
+         var newnum=num+as
+            addNum(gid, newnum,uid).then((res)=>{ //修改数量
+                        console.log(res);
+                        this.getCart() //重新调用
+                    })
+                    console.log(gid, newnum,as,uid);
+         }
+     }
     render() {
-        // console.log("this.state.list");
-        // console.log(this.state.list);
-        
         return (
             <div>
                 <div className="carttop">
@@ -81,7 +90,10 @@ class Cart extends Component {
                                             <p className="attrs"><span>红色 1.2米</span></p>
                                         <div className="howmuch">
                                             <div className="price">￥{item.price}.00</div>
-                                            <div className="quantity"><span>1</span></div>
+                                    <div className="quantity">
+                                        <button onClick={this.num.bind(this,item.id,item.num,-1,sessionStorage.getItem("user"))}>-</button>
+                                        <span>{item.num}</span>
+                                        <button onClick={this.num.bind(this,item.id,item.num,1,sessionStorage.getItem("user"))}>+</button></div>
                                         </div>
                                     </div>
                                 </div>
