@@ -36,3 +36,6 @@ export const cartData=(gid)=>{ //根据购物车gid获取商品数据
 export const Delete=(gid)=>{
     return axios.delete(`/meizugoods/del/${gid}`);
 }
+export const search=(title)=>{ //根据title搜索
+    return axios.get('/meizugoods/sw',{params:{title}})
+}
