@@ -10,7 +10,7 @@
     .goback {
         background-image: url(../../assets/img/goback.png);
         float: left;
-        width: 20px;
+        width: 20%;
         height: 20px;
         line-height: 20px;
         font-size: 20px;
@@ -20,8 +20,9 @@
     }
 
     .carttitle {
-        max-width: 60%;
+        width: 60%;
         margin: auto;
+        float: left;
         line-height: 44px;
         color: #666;
         font-size: 18px;
@@ -29,6 +30,15 @@
         overflow: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
+    }
+    .editor{
+        float: right;
+        width: 12%;
+        height: 20px;
+        text-align: center;
+        line-height: 44px;
+        font-size: 12px;
+        color: #999999;
     }
 }
 
@@ -83,9 +93,9 @@
                 em {
                     content: "";
                     position: absolute;
-                    top: 50%;
-                    width: 1.55556rem;
-                    height: 1.55556rem;
+                    top: 0.6667vw;
+                    width: 6.3333vw;
+                    height: 6.3333vw;
                     margin-top: -.27778rem;
                     border-radius: 50%;
                     border: 1px solid #ddd;
@@ -121,9 +131,9 @@
                     content: "";
                     position: absolute;
                     right: .34722rem;
-                    top: 50%;
-                    width: 1.55556rem;
-                    height: 1.55556rem;
+                    top: 6.6667vw;
+                    width: 6.3333vw;
+                    height: 6.3333vw;
                     margin-top: 0.27778rem;
                     background-color: #fff;
                     right: auto;
@@ -221,4 +231,59 @@
     border-top: 1px solid #ddd;
     position: fixed;
     bottom: 0;
+    .radio {
+        float: left;
+        // position: relative;
+        padding: 0;
+        width: 13%;
+        height: 10.3333vw;
+        box-sizing: border-box;
+        margin: 3.3333vw auto auto 3.3333vw;
+        // top: 1.44444rem;
+        // margin-top: -1.66667rem;
+
+        em {
+            content: "";
+            position: absolute;
+            right: .34722rem;
+            top: 3.6667vw;
+            width:  6.3333vw;
+            height:  6.3333vw;
+            // margin-top: 0.27778rem;
+            background-color: #fff;
+            right: auto;
+            left: .33333rem;
+        }
+    }
+    .total{
+        width: 52%;
+        height: 100%;
+        color: #666;
+            line-height: 13.3333vw;
+            float: right;
+            font-size: 3.2vw;
+        span{
+            color: #f0415f;
+        }
+        .settlement{
+            font-size: 3.7333vw;
+            color: white;
+            float: right;
+            width: 30vw;
+            height: 100%;
+            text-align: center;
+            line-height: 13.3333vw;
+            background-color: #f0415f;
+        }
+        .del{
+            font-size: 3.7333vw;
+            color: white;
+            float: right;
+            width: 30vw;
+            height: 100%;
+            text-align: center;
+            line-height: 13.3333vw;
+            background-color: #00c3f5;
+        }
+    }
 }

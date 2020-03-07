@@ -33,3 +33,6 @@ export const cartList=(uid)=>{ //查询购物车
 export const cartData=(gid)=>{ //根据购物车gid获取商品数据
     return axios.get('/meizugoods/cartdata',{params:{gid}})
 }
+export const Delete=(gid)=>{
+    return axios.delete(`/meizugoods/del/${gid}`);
+}

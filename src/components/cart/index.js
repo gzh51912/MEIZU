@@ -1,18 +1,22 @@
 import React, { Component } from 'react'
 import Hoc from '../hoc'
 import './cart.min.css'
-import{cartList,cartData,addNum} from '../../api/request'
+import{cartList,cartData,addNum,Delete} from '../../api/request'
 class Cart extends Component {
     constructor(props){
         super(props)
         this.state={
             list:[],
             allselected:false,  //全选
+            settlement:0,
+            isok:true
         }
     }
     componentDidMount(){
         this.getCart()
     }
+    
+    
     getCart(){
         cartList(sessionStorage.getItem("user")).then((res)=>{ //根据当前用户是谁来查询他的购物车
                     var data=[]
@@ -69,7 +73,8 @@ class Cart extends Component {
              allselected:this.state.list.every(item=>item.selected)
          }) 
         // this.state.list.every(item=>item.selected) //list里的selected都为真则为真
-        console.log(this.state.list);
+        // console.log(this.state.list);
+        this.zongjia()
      }
      allse=()=>{ //全选
         var data3=[]
@@ -83,6 +88,37 @@ class Cart extends Component {
             list:data3,
             allselected:all
         }) 
+        this.zongjia()
+       
+     }
+     zongjia(){ //计算总价
+        var allprice=0
+        this.state.list.forEach((item)=>{
+            if(item.selected){
+                allprice+= item.price*item.num
+            }
+            return allprice
+        })
+            // console.log(allprice);
+            this.setState({
+                settlement:allprice
+            })
+     }
+     editor=()=>{  //改变删除结算按钮  编辑->完成
+         this.setState({
+             isok:!this.state.isok
+         })
+     }
+     rem=()=>{  //根据id删除
+        this.state.list.forEach((item)=>{
+            if(item.selected){
+                // console.log(item.id);
+                Delete(item.id).then((res)=>{
+                    console.log(res);
+                    
+                })
+            }
+        })
        
      }
     render() {
@@ -91,6 +127,7 @@ class Cart extends Component {
                 <div className="carttop">
                     <div className="goback" onClick={this.back.bind(this,"1")}></div>
                     <div className="carttitle">购物车&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+        <div className="editor" onClick={this.editor}>{this.state.isok?"编辑":"完成"}</div>
                 </div>
                 
                 {/* 判断购物车是否有东西 */}
@@ -144,9 +181,20 @@ class Cart extends Component {
                 </div>
                 }
                 {/* 底部 */} 
-                <div className="foot">
-                    
-                </div>
+                {
+                    this.state.list.length!==0?<div className="foot">
+                    <div className="radio radio-merchant"> <em onClick={this.allse}>
+                            {this.state.allselected?<img src={require("../../assets/img/yes.png")}/>
+                        :<img src={require("../../assets/img/on.png")}/>}</em>
+                    </div>
+                    <div className="total">
+                    {this.state.isok?<><label>总计:</label>
+                    <span>￥{this.state.settlement}</span></> :""}
+                    {this.state.isok? <div className="settlement">结算</div>:<div className="del" onClick={this.rem}>删除</div> }
+                    </div>
+                </div>:<div></div>
+                }
+                
             </div>
         )
     }
