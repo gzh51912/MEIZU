@@ -12,7 +12,8 @@ export default class Login extends Component {
                 sessionStorage.setItem("token",res.token)
                 sessionStorage.setItem("user",this.node.value)
                 alert("登录成功，即将跳转")
-                this.props.history.push("/top/rec")
+                // this.props.history.push("/top/rec")
+                window.location.href="/top/phone"
             }else{
                 alert("账号或密码错误")
             }

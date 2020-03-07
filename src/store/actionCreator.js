@@ -5,19 +5,19 @@ export default{
             id
         }
     },
-    sound(){
-        return{
-            type:'SOUND'
-        }
-    },
-    parts(){
-        return{
-            type:'PARTS'
-        }
-    },
-    life(){
-        return{
-            type:'LIFE'
-        }
-    }
+    // sound(){
+    //     return{
+    //         type:'SOUND'
+    //     }
+    // },
+    // parts(){
+    //     return{
+    //         type:'PARTS'
+    //     }
+    // },
+    // life(){
+    //     return{
+    //         type:'LIFE'
+    //     }
+    // }
 }

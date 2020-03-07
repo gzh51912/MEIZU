@@ -6,7 +6,8 @@ class Cart extends Component {
     constructor(props){
         super(props)
         this.state={
-            list:[]
+            list:[],
+            allselected:false,  //全选
         }
     }
     componentDidMount(){
@@ -20,13 +21,14 @@ class Cart extends Component {
                 cartData(res[i].gid).then((res)=>{ //根据cart表的gid查询到的商品加入list
                     data.push(res[0])
 
-                    data.map((item,index)=>{ //把数量num添加到data数组种
-                       return item["num"]=num[index].num
+                    data.map((item,index)=>{ //把数量num添加到data数组中
+                       // eslint-disable-next-line no-sequences
+                       return item["num"]=num[index].num,item["selected"]=false
                     })
                     this.setState({
                         list:data
                     },()=>{
-                            console.log(this.state.list);    
+                            // console.log(this.state.list);    
                     })
                 }) 
             }
@@ -40,6 +42,7 @@ class Cart extends Component {
          }
          
      }
+
      /////商品id,当前数量，加减，当前用户
      num=(gid, num,as,uid)=>{  //修改购物车中单个商品的数量 
          if(num<=1&& as===-1){
@@ -47,11 +50,40 @@ class Cart extends Component {
          }else{
          var newnum=num+as
             addNum(gid, newnum,uid).then((res)=>{ //修改数量
-                        console.log(res);
+                        // console.log(res);
                         this.getCart() //重新调用
                     })
-                    console.log(gid, newnum,as,uid);
+                    // console.log(gid, newnum,as,uid);
          }
+     }
+     selected=(gid)=>{ //点击改变选中
+         var data2=[]
+         this.state.list.forEach((item)=>{
+             if(item.id===gid){
+                 item.selected=!item.selected
+             }
+             return data2.push(item)
+         })
+         this.setState({
+             list:data2,
+             allselected:this.state.list.every(item=>item.selected)
+         }) 
+        // this.state.list.every(item=>item.selected) //list里的selected都为真则为真
+        console.log(this.state.list);
+     }
+     allse=()=>{ //全选
+        var data3=[]
+       var all=!this.state.allselected
+        this.state.list.forEach((item)=>{
+            item.selected = all
+            return data3.push(item)
+        })
+        // console.log(data3);
+        this.setState({
+            list:data3,
+            allselected:all
+        }) 
+       
      }
     render() {
         return (
@@ -70,7 +102,9 @@ class Cart extends Component {
                 <div className="cart-list">
                 <div className="section radio-group merchant-group">
                     <div className="supplier radio-row">
-                        <div className="radio radio-merchant"> <em></em></div>
+                        <div className="radio radio-merchant"> <em onClick={this.allse}>
+                            {this.state.allselected?<img src={require("../../assets/img/yes.png")}/>
+                        :<img src={require("../../assets/img/on.png")}/>}</em></div>
                         <div className="radio-fld">
                             <div className="name">魅族</div>
                         </div>
@@ -79,7 +113,9 @@ class Cart extends Component {
                         this.state.list.map((item)=>{
                             return <div className="secrow radio-row" key={item.id}>
                         <div className="row-item">
-                            <div className="radio"><em></em></div>
+                        <div className="radio"><em onClick={this.selected.bind(this,item.id)}>
+                            {item.selected?<img src={require("../../assets/img/yes.png")}/>
+                        :<img src={require("../../assets/img/on.png")}/>}</em></div>
                             <div className="radio-fld">
                                 <div className="item">
                                     <div className="prod-img">
@@ -107,8 +143,10 @@ class Cart extends Component {
                 </div>
                 </div>
                 }
-                {/* 商品 */} 
-                
+                {/* 底部 */} 
+                <div className="foot">
+                    
+                </div>
             </div>
         )
     }

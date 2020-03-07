@@ -66,10 +66,11 @@
 }
 
 .cart-list .section .supplier {
-  height: 1.33333rem;
+  height: 10.3333vw;
   line-height: 1.44444rem;
   font-size: 14px;
   overflow: hidden;
+  border-bottom: 1px solid #dddddd;
 }
 
 .cart-list .section .supplier .radio {
@@ -87,8 +88,8 @@
   content: "";
   position: absolute;
   top: 50%;
-  width: .55556rem;
-  height: .55556rem;
+  width: 1.55556rem;
+  height: 1.55556rem;
   margin-top: -.27778rem;
   border-radius: 50%;
   border: 1px solid #ddd;
@@ -124,9 +125,9 @@
   position: absolute;
   right: .34722rem;
   top: 50%;
-  width: .55556rem;
-  height: .55556rem;
-  margin-top: -.27778rem;
+  width: 1.55556rem;
+  height: 1.55556rem;
+  margin-top: 0.27778rem;
   background-color: #fff;
   right: auto;
   left: .33333rem;
@@ -212,4 +213,12 @@
 
 .cart-list .secrow .row-item .radio-fld .item .intro .howmuch .quantity :before {
   content: "\D7";
+}
+
+.foot {
+  width: 100%;
+  height: 13.3333vw;
+  border-top: 1px solid #ddd;
+  position: fixed;
+  bottom: 0;
 }

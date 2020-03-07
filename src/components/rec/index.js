@@ -3,8 +3,10 @@ import Swiper from 'swiper'
 import 'swiper/css/swiper.css'
 import './rec.min.css'
 import {getRec} from '../../api/request'
+import actionCreator from '../../store/actionCreator';
+import {connect} from 'react-redux';
 
-export default class home extends Component {
+class Home extends Component {
     constructor(props){
         super(props)
         this.state={
@@ -54,7 +56,11 @@ export default class home extends Component {
            })
        })
     }
-    
+    phone=(id)=>{
+        this.props.phone(id)
+        this.props.history.push("/details")
+        
+     }
     render() {
         let  {phone,sound,parts,life} = this.state
         return (<div>
@@ -138,7 +144,7 @@ export default class home extends Component {
                         {/* 手机 */}
                         {
                             phone.map((item)=>{
-                                return <div className="phone-content" key={item.id}>
+                                return <div className="phone-content" key={item.id}  onClick={this.phone.bind(this,item.id)}>
                        <img src={item.src}/>
                        <div className="info">
                             <p className="title">{item.title}</p>
@@ -183,7 +189,7 @@ export default class home extends Component {
                         {/* 列表 */}
                         {
                             sound.map((item)=>{
-                                return <div className="audio-content" key={item.id}>
+                                return <div className="audio-content" key={item.id}  onClick={this.phone.bind(this,item.id)}>
                        <img src={item.src}/>
                        <div className="info">
                             <p className="title">{item.title}</p>
@@ -228,7 +234,7 @@ export default class home extends Component {
                         {/* 列表 */}
                         {
                             parts.map((item)=>{
-                                return <div className="audio-content" key={item.id}>
+                                return <div className="audio-content" key={item.id}  onClick={this.phone.bind(this,item.id)}>
                         <img src={item.src}/>
                        <div className="info">
                             <p className="title">{item.title}</p>
@@ -268,12 +274,12 @@ export default class home extends Component {
                 <img src="https://fms.res.meizu.com/dms/2020/01/16/98f89845-0e70-4a3f-b9b9-2427d7927752.jpg"/>
                 </div>
                 </div>
-                {/* 耳机列表 */}
+                {/* 列表 */}
                 <div className="audio-list">
                         {/* 列表 */}
                        {
                             life.map((item)=>{
-                                return <div className="audio-content" key={item.id}>
+                                return <div className="audio-content" key={item.id}  onClick={this.phone.bind(this,item.id)}>
                         <img src={item.src}/>
                        <div className="info">
                             <p className="title">{item.title}</p>
@@ -295,3 +301,9 @@ export default class home extends Component {
         )
     }
 }
+var mapState=()=>{
+    return{
+        
+    }
+}
+export default connect(mapState,actionCreator)(Home)

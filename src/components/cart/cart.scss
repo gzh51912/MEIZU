@@ -57,16 +57,18 @@
 .cart-list {
     padding-bottom: 1.25rem;
     margin-top: 14vw;
+
     .section {
         margin-top: 8px;
         overflow: hidden;
         background-color: #fff;
 
         .supplier {
-            height: 1.33333rem;
+            height: 10.3333vw;
             line-height: 1.44444rem;
             font-size: 14px;
             overflow: hidden;
+            border-bottom: 1px solid rgb(221, 221, 221);
 
             .radio {
                 float: left;
@@ -82,8 +84,8 @@
                     content: "";
                     position: absolute;
                     top: 50%;
-                    width: .55556rem;
-                    height: .55556rem;
+                    width: 1.55556rem;
+                    height: 1.55556rem;
                     margin-top: -.27778rem;
                     border-radius: 50%;
                     border: 1px solid #ddd;
@@ -96,13 +98,14 @@
         }
     }
 
-    .secrow{
+    .secrow {
         margin-bottom: -1px;
         overflow: auto;
 
         .row-item {
             overflow: auto;
             border-bottom: 1px solid rgb(238, 236, 236);
+
             .radio {
                 // border-bottom: 1px solid rgb(238, 236, 236);
                 float: left;
@@ -113,14 +116,15 @@
                 box-sizing: border-box;
                 top: 1.44444rem;
                 margin-top: -.66667rem;
+
                 em {
                     content: "";
                     position: absolute;
                     right: .34722rem;
                     top: 50%;
-                    width: .55556rem;
-                    height: .55556rem;
-                    margin-top: -.27778rem;
+                    width: 1.55556rem;
+                    height: 1.55556rem;
+                    margin-top: 0.27778rem;
                     background-color: #fff;
                     right: auto;
                     left: .33333rem;
@@ -176,24 +180,30 @@
                             white-space: nowrap;
                             word-break: break-word;
                             overflow: initial;
+
                             span {
                                 color: #999;
                             }
                         }
+
                         .howmuch {
                             padding-top: .11111rem;
                             line-height: 27px;
                             overflow: auto;
+
                             .price {
                                 float: left;
                                 color: #f0415f;
+
                                 :before {
                                     content: attr(data-symbol);
                                 }
                             }
+
                             .quantity {
                                 float: right;
                                 color: #999;
+
                                 :before {
                                     content: "\D7";
                                 }
@@ -204,4 +214,11 @@
             }
         }
     }
+}
+.foot{
+    width: 100%;
+    height: 13.3333vw;
+    border-top: 1px solid #ddd;
+    position: fixed;
+    bottom: 0;
 }

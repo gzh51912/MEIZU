@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import {getList} from '../../api/request'
+import actionCreator from '../../store/actionCreator';
+import {connect} from 'react-redux';
 
-export default class Parts extends Component {
+class Parts extends Component {
     constructor(props){
         super(props)
         this.state={
@@ -18,6 +20,11 @@ export default class Parts extends Component {
                 list:res
             })
         })
+     }
+     phone=(id)=>{
+        this.props.phone(id)
+        this.props.history.push("/details")
+        
      }
     render() {
         let {list} = this.state
@@ -36,7 +43,7 @@ export default class Parts extends Component {
                         {/* 列表 */}
                         {
                             list.map((item)=>{
-                                return <div className="phone-content" key={item.id}>
+                                return <div className="phone-content" key={item.id}  onClick={this.phone.bind(this,item.id)}>
                                          <img src={item.src} />
                                          <div className="info">
                                               <p className="title">{item.title}</p>
@@ -51,3 +58,9 @@ export default class Parts extends Component {
         )
     }
 }
+var mapState=()=>{
+    return{
+        
+    }
+}
+export default connect(mapState,actionCreator)(Parts)

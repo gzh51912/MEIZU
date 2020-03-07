@@ -82,6 +82,9 @@ import{details,checkCart,addCart,addNum} from '../../api/request'
                     console.log(res);
                     if(res.type===1){
                         alert(res.msg)
+                    }else  if(res==="请填写全"){
+                        alert("请登录")
+                        window.location.href="/login" 
                     }
                 })
             }
