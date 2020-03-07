@@ -33,7 +33,7 @@ import Not  from '../not'
      }
      sw=()=>{
          console.log("sw");
-         
+         this.props.history.push("/search")
      }
     render() {
         return (

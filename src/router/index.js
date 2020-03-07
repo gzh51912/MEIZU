@@ -10,6 +10,7 @@ import Top from '../components/top'
 import Reg from '../components/reg'
 import Mine from '../components/mine'
 import Details from '../components/details'
+import Search from '../components/search'
 export const routes=[
     {
         path:'/top',
@@ -32,6 +33,9 @@ export const routes=[
     },{
         path:'/details',
         component:Details,
+    },{
+        path:'/search',
+        component:Search,
     }
 ]
 
