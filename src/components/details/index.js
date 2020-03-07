@@ -5,7 +5,7 @@ import store from '../../store'
 import actionCreator from '../../store/actionCreator';
 import {connect} from 'react-redux';
 import './details.min.css'
-import{details,checkCart,addCart,addNum} from '../../api/request'
+import{details,checkCart,addCart,addNum,token} from '../../api/request'
 
  class Details extends Component {
      constructor(props){
@@ -50,6 +50,10 @@ import{details,checkCart,addCart,addNum} from '../../api/request'
         this.props.history.push("/cart")
      }
      add=(a)=>{
+        token().then((res)=>{
+            console.log(res);
+            
+        })
          if(this.state.num>=1){
              this.setState({
             num:this.state.num+a

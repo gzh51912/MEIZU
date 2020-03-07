@@ -39,3 +39,6 @@ export const Delete=(gid)=>{
 export const search=(title)=>{ //根据title搜索
     return axios.get('/meizugoods/sw',{params:{title}})
 }
+export const token=(token)=>{ //根据title搜索
+    return axios.get('/meizuuser/verify',{params:{token}})
+}
