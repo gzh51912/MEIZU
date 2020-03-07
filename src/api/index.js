@@ -7,7 +7,7 @@ var service = axios.create({
 })
 // //请求拦截器
 service.interceptors.request.use((config)=>{
-    console.log("发请求了 带上token")
+    // console.log("发请求了 带上token")
     if(sessionStorage.getItem("token")){
         config.headers["token"]=sessionStorage.getItem("token")
     }

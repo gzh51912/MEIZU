@@ -110,12 +110,13 @@ class Cart extends Component {
          })
      }
      rem=()=>{  //根据id删除
+        this.getCart()
         this.state.list.forEach((item)=>{
             if(item.selected){
                 // console.log(item.id);
                 Delete(item.id).then((res)=>{
                     console.log(res);
-                    
+                     this.getCart()
                 })
             }
         })
