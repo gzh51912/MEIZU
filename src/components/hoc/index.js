@@ -1,10 +1,19 @@
 import React from 'react';
 import Login from '../login'
+import {token} from '../../api/request'
+
 var Hoc=(Com)=>{
-    
+    let isok=false
+            token(sessionStorage.getItem("token")).then((res)=>{  //token验证
+                if(res.type===1){
+                     isok=true 
+                }
+            })
     return class extends React.Component {
-        render(){
-            if(sessionStorage.getItem("token"))
+        
+        render(){ 
+            console.log(isok);
+            if(isok) //如果验证通过
                  return  <Com {...this.props} />
             else{
                 return <Login/>

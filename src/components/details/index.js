@@ -50,10 +50,7 @@ import{details,checkCart,addCart,addNum,token} from '../../api/request'
         this.props.history.push("/cart")
      }
      add=(a)=>{
-        token().then((res)=>{
-            console.log(res);
-            
-        })
+        
          if(this.state.num>=1){
              this.setState({
             num:this.state.num+a
@@ -66,24 +63,28 @@ import{details,checkCart,addCart,addNum,token} from '../../api/request'
          }
      }
      addCart=()=>{
-         this.getCart()
-        // console.log(this.node.innerText);
-        // console.log(this.state.list[0].id);
+        token(sessionStorage.getItem("token")).then((res)=>{  //token验证
+            // console.log(res.type);
+            if(res.type===1){
+                 this.getCart()
+                console.log("token通过");
+            }
+        })
      }
      getCart(){  //加入购物车发送请求
         checkCart(this.state.list[0].id,sessionStorage.getItem("user")).then((res)=>{
             console.log(res);
             if(res[0]){ //增加数量
                 let newnum=res[0].num*1 + this.node.innerText*1
-                console.log(newnum);
+                // console.log(newnum);
                 
                 addNum(this.state.list[0].id,newnum,sessionStorage.getItem("user")).then((res)=>{
-                    console.log(res);
+                    // console.log(res);
                     alert(res.msg)
                 })
             }else{  //添加到购物车
                 addCart(this.state.list[0].id,this.node.innerText,sessionStorage.getItem("user")).then((res)=>{
-                    console.log(res);
+                    // console.log(res);
                     if(res.type===1){
                         alert(res.msg)
                     }else  if(res==="请填写全"){
