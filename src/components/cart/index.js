@@ -16,7 +16,6 @@ class Cart extends Component {
         this.getCart()
     }
     
-    
     getCart(){
         cartList(sessionStorage.getItem("user")).then((res)=>{ //根据当前用户是谁来查询他的购物车
                     var data=[]
@@ -116,7 +115,15 @@ class Cart extends Component {
                 // console.log(item.id);
                 Delete(item.id).then((res)=>{
                      this.getCart()
-                    console.log(res);
+                    console.log(res.msg);
+                    cartList(sessionStorage.getItem("user")).then((res)=>{ //重新发送请求查询购物车是否为空
+                        // console.log(res);
+                        if(res.length===0){ //购物车为空 重新渲染页面
+                            this.setState({
+                                list:[]
+                            })
+                        }
+                    })
                 })
             }
         })
