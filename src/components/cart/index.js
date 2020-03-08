@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Hoc from '../hoc'
 import './cart.min.css'
-import{cartList,cartData,addNum,Delete} from '../../api/request'
+import{cartList,cartData,addNum,Delete,token} from '../../api/request'
 class Cart extends Component {
     constructor(props){
         super(props)
@@ -110,7 +110,9 @@ class Cart extends Component {
          })
      }
      rem=()=>{  //根据id删除
-        this.getCart()
+        token(sessionStorage.getItem("token")).then((res)=>{  //token验证
+            if(res.type===1){
+                this.getCart()
         this.state.list.forEach((item)=>{
             if(item.selected){
                 // console.log(item.id);
@@ -127,7 +129,13 @@ class Cart extends Component {
                     })
                 })
             }
+        }) 
+            }else{
+                alert("请重新登录")
+                this.props.history.push("/login")
+            }
         })
+        
        
      }
     render() {
