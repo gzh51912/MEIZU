@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import './phone.min.css'
-import store from '../../store'
+// import store from '../../store'
 import actionCreator from '../../store/actionCreator';
 import {connect} from 'react-redux';
 import {getList} from '../../api/request'
@@ -61,7 +61,7 @@ import {getList} from '../../api/request'
         )
     }
 }
-var mapState=(state)=>{
+var mapState=()=>{
     return{
         
     }

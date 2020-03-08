@@ -7,7 +7,7 @@ import {loginto} from '../../api/request'
 export default class Login extends Component {
     getLogin(){
         loginto(this.node.value,this.psw.value).then((res)=>{
-            console.log(res);
+            // console.log(res);
             if(res.type===1){
                 sessionStorage.setItem("token",res.token)
                 sessionStorage.setItem("user",this.node.value)

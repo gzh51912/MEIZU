@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import {Route,Redirect} from 'react-router-dom';
-import Login from '../login';
+import {Route} from 'react-router-dom';
+// import Login from '../login';
 export default class MyRoute extends Component {
     render() {
         let {path,component:Com,roles} = this.props;

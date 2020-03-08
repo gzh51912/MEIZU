@@ -15,7 +15,7 @@ var Hoc=(Com)=>{
     return class extends React.Component {
         
         render(){ 
-            console.log(isok);
+            // console.log(isok);
             if(isok) //如果验证通过
                  return  <Com {...this.props} />
             else{

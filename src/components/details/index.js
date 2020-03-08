@@ -64,16 +64,19 @@ import{details,checkCart,addCart,addNum,token} from '../../api/request'
      }
      addCart=()=>{
         token(sessionStorage.getItem("token")).then((res)=>{  //token验证
-            // console.log(res.type);
+            // console.log(res);
             if(res.type===1){
                  this.getCart()
                 console.log("token通过");
+            }else{
+                alert("token验证失败，请登录")
+                this.props.history.push("/login")
             }
         })
      }
      getCart(){  //加入购物车发送请求
         checkCart(this.state.list[0].id,sessionStorage.getItem("user")).then((res)=>{
-            console.log(res);
+            // console.log(res);
             if(res[0]){ //增加数量
                 let newnum=res[0].num*1 + this.node.innerText*1
                 // console.log(newnum);
