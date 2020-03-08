@@ -15,6 +15,7 @@ class Home extends Component {
             parts:[],
             life:[]
         }
+        window.document.title="魅族官网"
     }
     componentDidMount(){
         // 轮播图

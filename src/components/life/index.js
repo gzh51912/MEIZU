@@ -8,6 +8,8 @@ class Life extends Component {
         this.state={
             list:[]
         }
+        window.document.title="生活-魅族官网"
+
     }
     componentDidMount(){
         this.getData()

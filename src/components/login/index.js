@@ -5,6 +5,9 @@ import {loginto} from '../../api/request'
 
 
 export default class Login extends Component {
+    componentDidMount(){
+        window.document.title="登录"
+    }
     getLogin(){
         loginto(this.node.value,this.psw.value).then((res)=>{
             // console.log(res);

@@ -14,6 +14,7 @@ class Cart extends Component {
     }
     componentDidMount(){
         this.getCart()
+        window.document.title="购物车"
     }
     
     getCart(){

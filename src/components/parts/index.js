@@ -9,6 +9,7 @@ class Parts extends Component {
         this.state={
             list:[]
         }
+        window.document.title="配件-魅族官网"
     }
     componentDidMount(){
         this.getData()

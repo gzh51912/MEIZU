@@ -11,6 +11,7 @@ import {getList} from '../../api/request'
          this.state={
              list:[]
          }
+         window.document.title="手机-魅族官网"
      }
      componentDidMount(){
         this.getData()

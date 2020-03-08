@@ -19,6 +19,7 @@ import{details,checkCart,addCart,addNum,token} from '../../api/request'
      }
      componentDidMount(){
           this.getData()
+         window.document.title="详情"
           
      }
      componentDidUpdate(){ 

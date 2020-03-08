@@ -3,6 +3,10 @@ import './mine.min.css'
 import { queries } from '@testing-library/react'
 
 export default class Mine extends Component {
+    componentDidMount(){
+        window.document.title="个人中心"
+
+    }
     return=()=>{
         this.props.history.push("/top")
     }

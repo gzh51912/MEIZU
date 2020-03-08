@@ -8,6 +8,7 @@ export default class Reg extends Component {
         this.state={
             list:[]
         }
+        window.document.title="注册"
     }
     componentDidMount(){
        

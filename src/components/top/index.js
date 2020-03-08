@@ -14,6 +14,7 @@ import Not  from '../not'
          this.state={
             menu:false
          }
+         window.document.title="魅族官网"
      }
      cart=()=>{
          this.props.history.push("/cart")
