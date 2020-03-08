@@ -115,8 +115,8 @@ class Cart extends Component {
             if(item.selected){
                 // console.log(item.id);
                 Delete(item.id).then((res)=>{
-                    console.log(res);
                      this.getCart()
+                    console.log(res);
                 })
             }
         })
