@@ -37,27 +37,27 @@ class Home extends Component {
         this.getData()
     }
     getData(){
-        let type="推荐手机"
+        var type="推荐手机"
         axios.get("http://47.113.120.143:5555/meizugoods/type",{params:{type}}).then((res)=>{
             console.log(res);
            this.setState({
                phone:res.data
            })
        })
-       let type2="推荐声学"
-        axios.get("http://47.113.120.143:5555/meizugoods/type",{params:{type2}}).then((res)=>{
+       var type="推荐声学"
+        axios.get("http://47.113.120.143:5555/meizugoods/type",{params:{type}}).then((res)=>{
            this.setState({
                sound:res.data
            })
        })
-       let type3="推荐配件"
-        axios.get("http://47.113.120.143:5555/meizugoods/type",{params:{type3}}).then((res)=>{
+       var type="推荐配件"
+        axios.get("http://47.113.120.143:5555/meizugoods/type",{params:{type}}).then((res)=>{
            this.setState({
                parts:res.data
            })
        })
-       let type4="推荐周边"
-        axios.get("http://47.113.120.143:5555/meizugoods/type",{params:{type4}}).then((res)=>{
+       var type="推荐周边"
+        axios.get("http://47.113.120.143:5555/meizugoods/type",{params:{type}}).then((res)=>{
            this.setState({
                life:res.data
            })
