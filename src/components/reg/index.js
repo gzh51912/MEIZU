@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import './reg.min.css'
 import {Checkname,Regto} from '../../api/request'
-
+import axios from 'axios'
 export default class Reg extends Component {
     constructor(props){
         super(props)
@@ -14,12 +14,14 @@ export default class Reg extends Component {
        
      }
      getReg(){
-        Checkname(this.node.value).then((res)=>{
-            // console.log(res);
-            if(res.type===1){
-                Regto(this.node.value,this.psw.value).then((res)=>{
+         let name=this.node.value
+         let password=this.psw.value
+         axios.get('http://47.113.120.143:5555/meizuuser/checkname',{params:{name}}).then((res)=>{
+            console.log(res);
+            if(res.data.type===1){
+                axios.post('http://47.113.120.143:5555/meizuuser/reg',{name,password}).then((res)=>{
                    
-                    if(res.type===1){
+                    if(res.data.type===1){
                         alert("注册成功，即将跳转至登录页面")
                         this.props.history.push("/login")
                     }

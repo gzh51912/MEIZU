@@ -2,9 +2,10 @@ import React, { Component } from 'react'
 import Swiper from 'swiper'
 import 'swiper/css/swiper.css'
 import './rec.min.css'
-import {getRec} from '../../api/request'
+// import {getRec} from '../../api/request'
 import actionCreator from '../../store/actionCreator';
 import {connect} from 'react-redux';
+import axios from 'axios';
 
 class Home extends Component {
     constructor(props){
@@ -36,24 +37,29 @@ class Home extends Component {
         this.getData()
     }
     getData(){
-        getRec("推荐手机").then((res)=>{
+        let type="推荐手机"
+        axios.get("http://47.113.120.143:5555/meizugoods/type",{params:{type}}).then((res)=>{
+            console.log(res);
            this.setState({
-               phone:res
+               phone:res.data
            })
        })
-       getRec("推荐声学").then((res)=>{
+       let type2="推荐声学"
+        axios.get("http://47.113.120.143:5555/meizugoods/type",{params:{type2}}).then((res)=>{
            this.setState({
-               sound:res
+               sound:res.data
            })
        })
-       getRec("推荐配件").then((res)=>{
+       let type3="推荐配件"
+        axios.get("http://47.113.120.143:5555/meizugoods/type",{params:{type3}}).then((res)=>{
            this.setState({
-               parts:res
+               parts:res.data
            })
        })
-       getRec("推荐周边").then((res)=>{
+       let type4="推荐周边"
+        axios.get("http://47.113.120.143:5555/meizugoods/type",{params:{type4}}).then((res)=>{
            this.setState({
-               life:res
+               life:res.data
            })
        })
     }
@@ -93,19 +99,19 @@ class Home extends Component {
                 <div className="index-hot-site" id="index-hot-site">
                     <div className="hot-site">
                         <ul>
-                            <li><a href="https://hd.mall.meizu.com/sale/nvwangjie20.html" data-bh="click_mall_index_menu_1"
+                            <li><a data-bh="click_mall_index_menu_1"
                                     data-mtype="mall_index_menu_1"><img
                                         src="https://fms.res.meizu.com/dms/2020/03/02/a1482d31-abe9-407a-8799-e235950689e3.png"/><span>女王价到         </span></a>
                             </li>
-                            <li><a href="https://detail.mall.meizu.com/item/meizu16t.html" data-bh="click_mall_index_menu_2"
+                            <li><a data-bh="click_mall_index_menu_2"
                                     data-mtype="mall_index_menu_2"><img
                                         src="https://fms.res.meizu.com/dms/2019/11/21/525ba08e-d608-426b-a857-beb035971043.png"/><span>魅族
                                         16T</span></a></li>
-                            <li><a href="https://detail.mall.meizu.com/item/meizu16xs.html" data-bh="click_mall_index_menu_3"
+                            <li><a  data-bh="click_mall_index_menu_3"
                                     data-mtype="mall_index_menu_3"><img
                                         src="https://fms.res.meizu.com/dms/2020/03/02/1200da92-ee39-4574-b086-5a2f71970077.png"/><span>魅族
                                         16Xs</span></a></li>
-                            <li><a href="http://mcycle.meizu.com/" data-bh="click_mall_index_menu_4"
+                            <li><a  data-bh="click_mall_index_menu_4"
                                     data-mtype="mall_index_menu_4"><img
                                         src="https://fms.res.meizu.com/dms/2019/04/28/552f6669-8652-4f78-a122-4866d2f7d25c.jpg"/><span>mCycle</         span></a>
                             </li>
@@ -115,17 +121,17 @@ class Home extends Component {
 
                 <div className="index-banner" id="index-banner">
                     <div className="row">
-                        <div className="banner-lg"><a href="https://detail.mall.meizu.com/item/meizu16t.html"
+                        <div className="banner-lg"><a 
                                 data-mtype="mall_index_ad_1" data-bh="click_mall_index_ad_1"><img
                                     src="https://fms.res.meizu.com/dms/2020/02/26/9a784ca2-b94c-49a6-a76d-184b1f481727.jpg"/></a>
                         </div>
                     </div>
                     <div className="row">
-                        <div className="banner-lg2"><a href="https://detail.meizu.com/item/meizu16spro.html" data-mtype="mall_index_ad_2"
+                        <div className="banner-lg2"><a  data-mtype="mall_index_ad_2"
                                 data-bh="click_mall_index_ad_2"><img
                                     src="https://fms.res.meizu.com/dms/2020/02/24/cdf48e9a-816e-4375-9d84-7db966378e6e.png"/></a>
                         </div>
-                        <div className="banner-lg2"><a href="https://detail.mall.meizu.com/item/meizuhd60.html"
+                        <div className="banner-lg2"><a  
                                 data-mtype="mall_index_ad_3" data-bh="click_mall_index_ad_3"><img
                                     src="https://fms.res.meizu.com/dms/2020/03/02/97eb925d-4407-4334-98b7-d9ae47b740f0.png"/></a>
                         </div>
@@ -139,7 +145,7 @@ class Home extends Component {
                         </h3>
                     </div>
                     <div className="section-box-adv">
-                        <a href="https://detail.mall.meizu.com/item/meizunote9.html" target="_blank" data-mtype="store_index_yl_1_1" data-bh="click_store_index_yl_1_1"><img className="lazy-img loaded-img" src="https://fms.res.meizu.com/dms/2020/02/05/8828c2e1-85c7-45d0-8fc1-f7d2d694f14e.jpg" alt="" data-src="https://fms.res.meizu.com/dms/2020/02/05/8828c2e1-85c7-45d0-8fc1-f7d2d694f14e.jpg" actived="actived"/></a>
+                        <a  target="_blank" data-mtype="store_index_yl_1_1" data-bh="click_store_index_yl_1_1"><img className="lazy-img loaded-img" src="https://fms.res.meizu.com/dms/2020/02/05/8828c2e1-85c7-45d0-8fc1-f7d2d694f14e.jpg" alt="" data-src="https://fms.res.meizu.com/dms/2020/02/05/8828c2e1-85c7-45d0-8fc1-f7d2d694f14e.jpg" actived="actived"/></a>
                         </div>
                     <div className="phone-list">
                         {/* 手机 */}

@@ -5,8 +5,8 @@ import store from '../../store'
 import actionCreator from '../../store/actionCreator';
 import {connect} from 'react-redux';
 import './details.min.css'
-import{details,checkCart,addCart,addNum,token} from '../../api/request'
-
+// import{details,checkCart,addCart,addNum,token} from '../../api/request'
+import axios from 'axios';
  class Details extends Component {
      constructor(props){
          super(props)
@@ -41,9 +41,10 @@ import{details,checkCart,addCart,addNum,token} from '../../api/request'
         this.props.history.push("/top")
      }
      getData(){
-         details(store.getState().id).then((res)=>{
+         let id=store.getState().id
+         axios.get('http://47.113.120.143:5555/meizugoods/details',{params:{id}}).then((res)=>{
              this.setState({
-                list:res
+                list:res.data
              })
          })
      }
@@ -64,9 +65,10 @@ import{details,checkCart,addCart,addNum,token} from '../../api/request'
          }
      }
      addCart=()=>{
-        token(sessionStorage.getItem("token")).then((res)=>{  //token验证
+        let token=sessionStorage.getItem("token")
+            axios.get("http://47.113.120.143:5555/meizuuser/verify",{params:{token}}).then((res)=>{  //token验证
             // console.log(res);
-            if(res.type===1){
+            if(res.data.type===1){
                  this.getCart()
                 console.log("token通过");
             }else{
@@ -76,24 +78,29 @@ import{details,checkCart,addCart,addNum,token} from '../../api/request'
         })
      }
      getCart(){  //加入购物车发送请求
-        checkCart(this.state.list[0].id,sessionStorage.getItem("user")).then((res)=>{
+        let gid=this.state.list[0].id
+        let uid=sessionStorage.getItem("user")
+        axios.get('http://47.113.120.143:5555/meizugoods/checkcart',{params:{gid,uid}}).then((res)=>{
             // console.log(res);
-            if(res[0]){ //增加数量
-                let newnum=res[0].num*1 + this.node.innerText*1
+            if(res.data[0]){ //增加数量
+                let num=res.data[0].num*1 + this.node.innerText*1
                 // console.log(newnum);
                 
-                addNum(this.state.list[0].id,newnum,sessionStorage.getItem("user")).then((res)=>{
+                axios.put("http://47.113.120.143:5555/meizugoods/addnum",{gid,num,uid}).then((res)=>{
                     // console.log(res);
-                    alert(res.msg)
+                    alert(res.data.msg)
                 })
             }else{  //添加到购物车
-                addCart(this.state.list[0].id,this.node.innerText,sessionStorage.getItem("user")).then((res)=>{
-                    // console.log(res);
-                    if(res.type===1){
-                        alert(res.msg)
-                    }else  if(res==="请填写全"){
+                let num=this.node.innerText
+                console.log(gid, num,uid);
+                
+                axios.post("http://47.113.120.143:5555/meizugoods/addcart",{gid, num,uid}).then((res)=>{
+                    console.log(res);
+                    if(res.data.type===1){
+                        alert(res.data.msg)
+                    }else  if(res.data==="请填写全"){
                         alert("请登录")
-                        window.location.href="/login" 
+                        this.props.history.push("/login" )
                     }
                 })
             }

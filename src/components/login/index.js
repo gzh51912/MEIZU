@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import './login.min.css'
-import {loginto} from '../../api/request'
-
+// import {loginto} from '../../api/request'
+import axios from 'axios'
 
 
 export default class Login extends Component {
@@ -9,14 +9,16 @@ export default class Login extends Component {
         window.document.title="登录"
     }
     getLogin(){
-        loginto(this.node.value,this.psw.value).then((res)=>{
+        let name=this.node.value
+        let password=this.psw.value
+        axios.get('http://47.113.120.143:5555/meizuuser/login',{params:{name,password}}).then((res)=>{
             // console.log(res);
-            if(res.type===1){
-                sessionStorage.setItem("token",res.token)
+            if(res.data.type===1){
+                sessionStorage.setItem("token",res.data.token)
                 sessionStorage.setItem("user",this.node.value)
                 alert("登录成功，即将跳转")
                 // this.props.history.push("/top/rec")
-                window.location.href="/top/phone"
+                this.props.history.push("/")
             }else{
                 alert("账号或密码错误")
             }

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import './mine.min.css'
-import { queries } from '@testing-library/react'
+// import { queries } from '@testing-library/react'
 
 export default class Mine extends Component {
     componentDidMount(){

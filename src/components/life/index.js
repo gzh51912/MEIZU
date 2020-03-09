@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import {getList} from '../../api/request'
 import actionCreator from '../../store/actionCreator';
 import {connect} from 'react-redux';
+import axios from 'axios'
 class Life extends Component {
     constructor(props){
         super(props)
@@ -15,10 +16,11 @@ class Life extends Component {
         this.getData()
      }
      getData(){
-         getList("生活").then((res)=>{
+         let type="生活"
+        axios.get('http://47.113.120.143:5555/meizugoods/type',{params:{type}}).then((res)=>{
             // console.log(res);
             this.setState({
-                list:res
+                list:res.data
             })
         })
      }
@@ -34,8 +36,8 @@ class Life extends Component {
                 {/* brand图 */}
                 <div className="brand">
                 <div className="brand-single">
-                    <a className="brand-single-pic" href="https://detail.meizu.com/item/meizu16s.html">
-                        <img className="" src="https://openfile.meizu.com/group1/M00/07/58/Cgbj0F1_MtWAGBY6AAIMTaHG4lI991.jpg"/>
+                    <a className="brand-single-pic">
+                        <img className="" src="https://openfile.meizu.com/group1/M00/07/7E/Cgbj0V2wC-2AOtvnAAMkfliRDPA904.jpg"/>
                     </a>
                  </div>
                 </div>

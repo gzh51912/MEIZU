@@ -3,7 +3,7 @@ import './search.min.css'
 import {search} from '../../api/request'
 import actionCreator from '../../store/actionCreator';
 import {connect} from 'react-redux';
-
+import axios from 'axios'
 class Search extends Component {
     constructor(props){
         super(props)
@@ -17,11 +17,12 @@ class Search extends Component {
     }
     sw=()=>{
         console.log(this.node.value);
-        search(this.node.value).then((res)=>{
+        let title=this.node.value
+        axios.get('http://47.113.120.143:5555/meizugoods/sw',{params:{title}}).then((res)=>{
             console.log(res);
-            if(res.length!==0){
+            if(res.data.length!==0){
                 this.setState({
-                     list:res
+                     list:res.data
                 })
             }else{
                 this.setState({

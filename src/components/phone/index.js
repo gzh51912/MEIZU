@@ -3,8 +3,7 @@ import './phone.min.css'
 // import store from '../../store'
 import actionCreator from '../../store/actionCreator';
 import {connect} from 'react-redux';
-import {getList} from '../../api/request'
-
+import axios from 'axios'
  class Phone extends Component {
      constructor(props){
          super(props)
@@ -17,9 +16,10 @@ import {getList} from '../../api/request'
         this.getData()
      }
      getData(){
-         getList("手机").then((res)=>{
+        let type="手机"
+        axios.get('http://47.113.120.143:5555/meizugoods/type',{params:{type}}).then((res)=>{
             this.setState({
-                list:res
+                list:res.data
             })
         })
      }
@@ -35,7 +35,7 @@ import {getList} from '../../api/request'
                 {/* brand图 */}
                 <div className="brand">
                 <div className="brand-single">
-                    <a className="brand-single-pic" href="https://detail.meizu.com/item/meizu16s.html">
+                    <a className="brand-single-pic" >
                         <img className="" src="https://openfile.meizu.com/group1/M00/07/58/Cgbj0F1_MtWAGBY6AAIMTaHG4lI991.jpg"/>
                     </a>
                  </div>

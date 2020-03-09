@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
-import Hoc from '../hoc'
+// import Hoc from '../hoc'
 import './cart.min.css'
-import{cartList,cartData,addNum,Delete,token} from '../../api/request'
-class Cart extends Component {
+import axios from 'axios';
+// import{cartList,cartData,addNum,Delete,token} from '../../api/request'
+export default class Cart extends Component {
     constructor(props){
         super(props)
         this.state={
@@ -11,19 +12,35 @@ class Cart extends Component {
             settlement:0,
             isok:true
         }
+        this.token()
     }
     componentDidMount(){
-        this.getCart()
         window.document.title="购物车"
     }
-    
+    token(){
+        let token=sessionStorage.getItem("token")
+        axios.get("http://47.113.120.143:5555/meizuuser/verify",{params:{token}}).then((res)=>{  //token验证
+        // console.log(res);
+        if(res.data.type===1){
+             this.getCart()
+            console.log("token通过");
+        }else{
+            alert("token验证失败，请登录")
+            this.props.history.push("/login")
+        }
+    })
+    }
     getCart(){
-        cartList(sessionStorage.getItem("user")).then((res)=>{ //根据当前用户是谁来查询他的购物车
+        let uid=sessionStorage.getItem("user")
+        axios.get("http://47.113.120.143:5555/meizugoods/usercart",{params:{uid}}).then((res)=>{ //根据当前用户是谁来查询他的购物车
                     var data=[]
-                    var num=res
-            for(var i in res){
-                cartData(res[i].gid).then((res)=>{ //根据cart表的gid查询到的商品加入list
-                    data.push(res[0])
+                    var num=res.data
+                    
+                    
+            for(var i in res.data){
+               let gid=res.data[i].gid
+               axios.get('http://47.113.120.143:5555/meizugoods/cartdata',{params:{gid}}).then((res)=>{ //根据cart表的gid查询到的商品加入list
+                    data.push(res.data[0])
 
                     data.map((item,index)=>{ //把数量num添加到data数组中
                        // eslint-disable-next-line no-sequences
@@ -52,8 +69,8 @@ class Cart extends Component {
          if(num<=1&& as===-1){
              alert("已经是最小啦！！不能再减少啦！！！")
          }else{
-         var newnum=num+as
-            addNum(gid, newnum,uid).then((res)=>{ //修改数量
+         var num=num+as
+         axios.put("http://47.113.120.143:5555/meizugoods/addnum",{gid, num,uid}).then((res)=>{ //修改数量
                         // console.log(res);
                         this.getCart() //重新调用
                     })
@@ -110,18 +127,20 @@ class Cart extends Component {
          })
      }
      rem=()=>{  //根据id删除
-        token(sessionStorage.getItem("token")).then((res)=>{  //token验证
-            if(res.type===1){
+        let token=sessionStorage.getItem("token")
+            axios.get("http://47.113.120.143:5555/meizuuser/verify",{params:{token}}).then((res)=>{  //token验证
+            if(res.data.type===1){
                 this.getCart()
         this.state.list.forEach((item)=>{
             if(item.selected){
                 // console.log(item.id);
-                Delete(item.id).then((res)=>{
+                axios.delete(`http://47.113.120.143:5555/meizugoods/del/${item.id}`).then((res)=>{
                      this.getCart()
-                    console.log(res.msg);
-                    cartList(sessionStorage.getItem("user")).then((res)=>{ //重新发送请求查询购物车是否为空
+                    console.log(res.data.msg);
+                    let user=sessionStorage.getItem("user")
+        axios.get("http://47.113.120.143:5555/meizugoods/usercart",{params:{user}}).then((res)=>{ //重新发送请求查询购物车是否为空
                         // console.log(res);
-                        if(res.length===0){ //购物车为空 重新渲染页面
+                        if(res.data.length===0){ //购物车为空 重新渲染页面
                             this.setState({
                                 list:[]
                             })
@@ -216,4 +235,4 @@ class Cart extends Component {
         )
     }
 }
-export default Hoc(Cart)
+// export default Hoc(Cart)
